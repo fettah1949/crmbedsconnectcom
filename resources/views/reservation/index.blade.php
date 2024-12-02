@@ -90,10 +90,6 @@ function getBadge($var){
                     
                     
                         <div class="widget-content widget-content-area br-6 text-center" style="box-shadow: none;margin-top:-10">
-                    <form method="post" action="{{ route('redirectToZoho') }}" >
-                             @csrf
-                        <button type="submit"  class="btn btn-outline-success mb-2">Apply</button>
-                        </form>
                             <a   type="button" style="margin: 5px" class="btn btn-outline-primary col-sm-full" >
                                 <h6>Turn_Over</h6> <hr style="margin-top: 5px; margin-bottom: 10px"> 
                                 <span  class='shadow-none badge badge-success '>{{$res_state["t_un_sell"]}}   €</span> <span style="margin-left:10px;"  class='shadow-none badge badge-danger'> {{$res_state["t_un_purshase"]}}   €</span>
@@ -480,8 +476,8 @@ function getBadge($var){
 
         $.ajax({
             type : "GET",
-            // url : "https://crm.bedsconnect.com/public/production/getdetail",
-            url : "http://localhost/crmbedsconnectcom/public/production/getdetail",
+            url : "https://crm.bedsconnect.com/public/production/getdetail",
+            // url : "http://localhost/crmbedsconnectcom/public/production/getdetail",
             data : {
                 "_token" : "{{ csrf_token() }}",
                 tgx : $tgx,
