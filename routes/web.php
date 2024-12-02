@@ -27,8 +27,6 @@ Route::POST('/getAccessToken', 'ReservationController@getAccessToken')->name('ge
 Route::POST('/getAccessToken_purchase', 'ReservationController@getAccessToken_purchase')->name('getAccessToken_purchase');
 
 
-Route::get('/redirectToZoho', 'ReservationController@redirectToZoho')->name('redirectToZoho');
-Route::get('/redirectToZoho_purchase', 'ReservationController@redirectToZoho_purchase')->name('redirectToZoho_purchase');
 
 
 Route::group(['middleware' => 'auth'] , function() {
@@ -149,10 +147,7 @@ Route::group(['middleware' => 'auth'] , function() {
         // $pageName = 'auth_boxed';
         return view('pages.expense.expense')->with($data);
     });
-    Route::prefix('vervotech')->group(function () {
-        Route::get('/liste', 'HoteListController@liste')->name('liste');
 
-    });
 
     // CONTACT
     Route::prefix('contact')->group(function () {

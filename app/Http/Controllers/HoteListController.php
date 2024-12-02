@@ -139,7 +139,7 @@ class HoteListController extends Controller
     public function export()
     {
         // Récupérez les données que vous souhaitez exporter depuis votre modèle ou votre source de données
-// SELECT COUNT(*) AS nbr_doublon, bdc_id FROM hotellists GROUP BY bdc_id HAVING COUNT(*) > 1;
+        // SELECT COUNT(*) AS nbr_doublon, bdc_id FROM hotellists GROUP BY bdc_id HAVING COUNT(*) > 1;
         $data = DB::table('hotellists')
         // ->where('id','>=',532182)
         ->select(DB::raw('COUNT(*) AS nbr_doublon , bdc_id'))
@@ -148,7 +148,7 @@ class HoteListController extends Controller
         ->having('nbr_doublon', '>', 1)
         ->get();
         // $data  =  Hotellist::All();
-    //   return $data ;
+        //   return $data ;
         // $data = new Hotellist;
     
         // Convertissez les données en tableau ou en format souhaité pour l'exportation (par exemple, CSV, Excel, etc.)
