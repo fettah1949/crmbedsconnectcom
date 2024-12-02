@@ -31,8 +31,8 @@ class ReservationController extends Controller
          
       
             //    die('ffffff');
-         ReservationController::crono_taux();
-        // ReservationController::getdata();
+        //  ReservationController::crono_taux();
+        ReservationController::getdata();
    
 
 
@@ -1890,374 +1890,434 @@ class ReservationController extends Controller
 
 
     /////////API New
-    public function getdata()
-    {
+    // public function getdata()
+    // {
             
-        $Booking_to_D =  date("Y-m-d");
-            //   $Booking_to_D =  date("2024-07-09");
-        $Booking_from_D = date('Y-m-d', strtotime($Booking_to_D . " - 1 day"));
+    //     $Booking_to_D =  date("Y-m-d");
+    //         //   $Booking_to_D =  date("2024-07-09");
+    //     $Booking_from_D = date('Y-m-d', strtotime($Booking_to_D . " - 1 day"));
                                                                     
 
-                // retrive by 7 days 
-                            //  $d_id = '1';
-                            //    $startdate = User::where('id',$d_id)->first();
-                            //  $Booking_to_D = $startdate->name;
+    //             // retrive by 7 days 
+    //                         //  $d_id = '1';
+    //                         //    $startdate = User::where('id',$d_id)->first();
+    //                         //  $Booking_to_D = $startdate->name;
 
-                            //   $Booking_from_D = date('Y-m-d', strtotime($Booking_to_D . " - 6 day"));
+    //                         //   $Booking_from_D = date('Y-m-d', strtotime($Booking_to_D . " - 6 day"));
 
-                            //   $startdate = User::find($d_id);
-                            //   $startdate->name = $Booking_from_D;
+    //                         //   $startdate = User::find($d_id);
+    //                         //   $startdate->name = $Booking_from_D;
                             
-                            //   $startdate->save();
-                // end retrive by 7 days
+    //                         //   $startdate->save();
+    //             // end retrive by 7 days
 
                 
-            //    $date1=date("2023-03-26");              
+    //         //    $date1=date("2023-03-26");              
                             
-            //     $date2 = date('Y-m-d', strtotime($date1 . " +6 day"));
-            //    return $date2;
+    //         //     $date2 = date('Y-m-d', strtotime($date1 . " +6 day"));
+    //         //    return $date2;
                     
     
-            $accesToken = "++CiXsABSFv0Y+3O941KDdJBroKDmz0vN1paiflJcN0=";
-            $password = "QVyoJPQXM89az4J4";
+    //         $accesToken = "++CiXsABSFv0Y+3O941KDdJBroKDmz0vN1paiflJcN0=";
+    //         $password = "QVyoJPQXM89az4J4";
 
-            //   for ($i=0; $i <100 ; $i++) 
-            //     { 
-                // $access = array('accessToken' => $accesToken, 'password'=> $password );
-                // $bookingDate = array('from' => $date1, 'to'=> $date2);
+    //         //   for ($i=0; $i <100 ; $i++) 
+    //         //     { 
+    //             // $access = array('accessToken' => $accesToken, 'password'=> $password );
+    //             // $bookingDate = array('from' => $date1, 'to'=> $date2);
     
-            $access = array('accessToken' => $accesToken, 'password'=> $password );
-            $bookingDate = array('from' => $Booking_from_D, 'to'=> $Booking_to_D );
+    //         $access = array('accessToken' => $accesToken, 'password'=> $password );
+    //         $bookingDate = array('from' => $Booking_from_D, 'to'=> $Booking_to_D );
 
 
-            //   return $bookingDate;
-            $Req_W_CN = array("access" => $access,"bookingDate" => $bookingDate, "includeCancellations"=>true);
+    //         //   return $bookingDate;
+    //         $Req_W_CN = array("access" => $access,"bookingDate" => $bookingDate, "includeCancellations"=>true);
     
-            //  $reservation_alls=Reservation::whereDate('bookingDate','=',$dateapi)->get(); 
-            //   return $Req_W_CN;
-                try {
-                    $result = ReservationController::getData_API($Req_W_CN);
-                    //print_r(" 1  ") ;
-            //   return $result["reservationSearchRS"];
-                    // echo 'fettah : '. $result["reservationSearchRS"];
+    //         //  $reservation_alls=Reservation::whereDate('bookingDate','=',$dateapi)->get(); 
+    //         //   return $Req_W_CN;
+    //             try {
+    //                 $result = ReservationController::getData_API($Req_W_CN);
+    //                 //print_r(" 1  ") ;
+    //         //   return $result["reservationSearchRS"];
+    //                 // echo 'fettah : '. $result["reservationSearchRS"];
                     
-                    if ($result["reservationSearchRS"]){
-                        //  print_r(  $result["reservationSearchRS"]);
-                        foreach ($result["reservationSearchRS"] as $key => $value) {
+    //                 if ($result["reservationSearchRS"]){
+    //                     //  print_r(  $result["reservationSearchRS"]);
+    //                     foreach ($result["reservationSearchRS"] as $key => $value) {
                             
                             
-                                // print_r(" 1  ") ;
-                            $res = new Res_obj($result["reservationSearchRS"][$key]);
+    //                             // print_r(" 1  ") ;
+    //                         $res = new Res_obj($result["reservationSearchRS"][$key]);
                         
                                 
-                                if($res->status != 'KUN'){
+    //                             if($res->status != 'KUN'){
                                     
-                                    $Reservation__check=Reservation::where("tgx",$res->tgx)->where("providerCode",$res->providerCode)->where("clientCode",$res->clientCode)->first(); 
-                                    $providerCode =  $res->providerCode; 
-                                    $clientCode =  $res->clientCode; 
+    //                                 $Reservation__check=Reservation::where("tgx",$res->tgx)->where("providerCode",$res->providerCode)->where("clientCode",$res->clientCode)->first(); 
+    //                                 $providerCode =  $res->providerCode; 
+    //                                 $clientCode =  $res->clientCode; 
                 
-                                    if($Reservation__check != ""){
-                                    $providerCode_1 = $Reservation__check->providerCode;
-                                    $clientCode_1 = $Reservation__check->clientCode;
-                                    }else{
-                                    $providerCode_1 ="";
-                                    $clientCode_1 ="";
-                                    }
+    //                                 if($Reservation__check != ""){
+    //                                 $providerCode_1 = $Reservation__check->providerCode;
+    //                                 $clientCode_1 = $Reservation__check->clientCode;
+    //                                 }else{
+    //                                 $providerCode_1 ="";
+    //                                 $clientCode_1 ="";
+    //                                 }
                                     
-                                }else{
-                                    $providerCode =  ""; 
-                                    $providerCode_1 = "";
-                                    $clientCode =  ""; 
-                                    $clientCode_1 = "";
+    //                             }else{
+    //                                 $providerCode =  ""; 
+    //                                 $providerCode_1 = "";
+    //                                 $clientCode =  ""; 
+    //                                 $clientCode_1 = "";
                                     
-                                    }
-                                    //  print_r( ' '. $res->tgx .' --- '.$providerCode_1);
+    //                                 }
+    //                                 //  print_r( ' '. $res->tgx .' --- '.$providerCode_1);
                                     
-                                    if ($res->status != "OK" && $res->status != "KUN" && Reservation::find($res->tgx) &&  $providerCode ==  $providerCode_1 &&  $clientCode ==  $clientCode_1 ){
-                                            //   return '1';
-                                            //  return $result["reservationSearchRS"][$key]["locators"]["client"];
-                                            $resa = Reservation::where("tgx",$res->tgx)->where("provider",$res->provider)->first(); 
-                                            //   return $resa->tgx;
-                                            $resa -> status = $res->status;
-                                            $resa -> summaryStatus = $res->summaryStatus;
-                                            $resa -> internalStatus = $res->internalStatus;
-                                            $resa -> bookingStatus = $res->bookingStatus;
+    //                                 if ($res->status != "OK" && $res->status != "KUN" && Reservation::find($res->tgx) &&  $providerCode ==  $providerCode_1 &&  $clientCode ==  $clientCode_1 ){
+    //                                         //   return '1';
+    //                                         //  return $result["reservationSearchRS"][$key]["locators"]["client"];
+    //                                         $resa = Reservation::where("tgx",$res->tgx)->where("provider",$res->provider)->first(); 
+    //                                         //   return $resa->tgx;
+    //                                         $resa -> status = $res->status;
+    //                                         $resa -> summaryStatus = $res->summaryStatus;
+    //                                         $resa -> internalStatus = $res->internalStatus;
+    //                                         $resa -> bookingStatus = $res->bookingStatus;
                 
-                                            $resa -> cancellationDate = $res->cancellationDate;
+    //                                         $resa -> cancellationDate = $res->cancellationDate;
                 
-                                            //bookingDate = LastActionDate
-                                            //   $lastActionDate= date('d-m-Y', strtotime($res->lastActionDate));
-                                            $resa -> bookingDate = $res->lastActionDate;
+    //                                         //bookingDate = LastActionDate
+    //                                         //   $lastActionDate= date('d-m-Y', strtotime($res->lastActionDate));
+    //                                         $resa -> bookingDate = $res->lastActionDate;
                 
-                                            //selling price =  cancellation price
-                                            $resa -> sellingPrice_amount = $res->cancellationPrice_amount;
-                                            $resa -> sellingPrice_currency = $res -> cancellationPrice_currency;
+    //                                         //selling price =  cancellation price
+    //                                         $resa -> sellingPrice_amount = $res->cancellationPrice_amount;
+    //                                         $resa -> sellingPrice_currency = $res -> cancellationPrice_currency;
             
-                                            //reset intern calculated data
-                                            $resa -> un_pr_purchasing_EUR = 0;
-                                            $resa -> Commission_bdsc = 0;
-                                            $resa -> nights_count = 0;
-                                            $resa -> price_per_night = 0;
-                                            $resa ->  marge = 0;
+    //                                         //reset intern calculated data
+    //                                         $resa -> un_pr_purchasing_EUR = 0;
+    //                                         $resa -> Commission_bdsc = 0;
+    //                                         $resa -> nights_count = 0;
+    //                                         $resa -> price_per_night = 0;
+    //                                         $resa ->  marge = 0;
                                 
-                                            $cancellationDate = explode(" ", $res->cancellationDate);
+    //                                         $cancellationDate = explode(" ", $res->cancellationDate);
             
-                                            $QUOTE=Quote::where("DATE",$cancellationDate[0])->first(); 
-                                            //    return $QUOTE->USD;
-                                                //united Price case Status CN
-                                                if($res -> cancellationPrice_currency == 'EUR'){
-                                                    $diffrent = 1 ;
-                                                }elseif($res -> cancellationPrice_currency == 'USD'){
-                                                    // return 'fff';
-                                                    $diffrent = $QUOTE->USD;                                
-                                                }elseif($res -> cancellationPrice_currency == 'MAD'){
-                                                    $diffrent = $QUOTE->MAD ;
-                                                }
+    //                                         $QUOTE=Quote::where("DATE",$cancellationDate[0])->first(); 
+    //                                         //    return $QUOTE->USD;
+    //                                             //united Price case Status CN
+    //                                             if($res -> cancellationPrice_currency == 'EUR'){
+    //                                                 $diffrent = 1 ;
+    //                                             }elseif($res -> cancellationPrice_currency == 'USD'){
+    //                                                 // return 'fff';
+    //                                                 $diffrent = $QUOTE->USD;                                
+    //                                             }elseif($res -> cancellationPrice_currency == 'MAD'){
+    //                                                 $diffrent = $QUOTE->MAD ;
+    //                                             }
                                             
                                                 
-                                                if($res -> cancellationPrice_currency == null){
+    //                                             if($res -> cancellationPrice_currency == null){
                                                 
-                                                }else{
+    //                                             }else{
                                                     
-                                                    if($res -> cancellationPrice_currency == 'EUR')
-                                                    { 
+    //                                                 if($res -> cancellationPrice_currency == 'EUR')
+    //                                                 { 
                                                         
-                                                        $un_pr_selling_EUR = $res -> cancellationPrice_amount * $diffrent;
+    //                                                     $un_pr_selling_EUR = $res -> cancellationPrice_amount * $diffrent;
             
-                                                        $resa -> un_pr_selling_EUR = $un_pr_selling_EUR;
+    //                                                     $resa -> un_pr_selling_EUR = $un_pr_selling_EUR;
             
-                                                    }
-                                                    elseif($res -> cancellationPrice_currency == 'USD'){
+    //                                                 }
+    //                                                 elseif($res -> cancellationPrice_currency == 'USD'){
             
-                                                        if($diffrent>=1)
-                                                        {
-                                                        $un_pr_selling_EUR = $res -> cancellationPrice_amount / $diffrent;
+    //                                                     if($diffrent>=1)
+    //                                                     {
+    //                                                     $un_pr_selling_EUR = $res -> cancellationPrice_amount / $diffrent;
             
-                                                        }else{
-                                                            $un_pr_selling_EUR = $res -> cancellationPrice_amount * $diffrent;
-                                                        }
+    //                                                     }else{
+    //                                                         $un_pr_selling_EUR = $res -> cancellationPrice_amount * $diffrent;
+    //                                                     }
             
-                                                        $resa -> un_pr_selling_EUR = $un_pr_selling_EUR;                             
-                                                    }elseif($res -> cancellationPrice_currency == 'MAD'){
-                                                        if($diffrent>=1)
-                                                        {
-                                                        $un_pr_selling_EUR = $res -> cancellationPrice_amount / $diffrent;  
-                                                        }else{
-                                                            $un_pr_selling_EUR = $res -> cancellationPrice_amount * $diffrent;
-                                                        }
+    //                                                     $resa -> un_pr_selling_EUR = $un_pr_selling_EUR;                             
+    //                                                 }elseif($res -> cancellationPrice_currency == 'MAD'){
+    //                                                     if($diffrent>=1)
+    //                                                     {
+    //                                                     $un_pr_selling_EUR = $res -> cancellationPrice_amount / $diffrent;  
+    //                                                     }else{
+    //                                                         $un_pr_selling_EUR = $res -> cancellationPrice_amount * $diffrent;
+    //                                                     }
             
-                                                    $resa -> un_pr_selling_EUR = $un_pr_selling_EUR;
-                                                    }
+    //                                                 $resa -> un_pr_selling_EUR = $un_pr_selling_EUR;
+    //                                                 }
                                                     
-                                                }
+    //                                             }
             
-                                                /////////////////////////
+    //                                             /////////////////////////
             
                                             
                                         
             
-                                        $resa -> cancellationPrice_currency = $res -> cancellationPrice_currency ;
-                                        $resa -> cancellationPrice_amount = $res -> cancellationPrice_amount ;
-                                        $resa -> cancellationPrice_binding = $res -> cancellationPrice_binding ;
-                                        $resa -> cancellationPrice_commission = $res -> cancellationPrice_commission;
+    //                                     $resa -> cancellationPrice_currency = $res -> cancellationPrice_currency ;
+    //                                     $resa -> cancellationPrice_amount = $res -> cancellationPrice_amount ;
+    //                                     $resa -> cancellationPrice_binding = $res -> cancellationPrice_binding ;
+    //                                     $resa -> cancellationPrice_commission = $res -> cancellationPrice_commission;
             
-                                        $resa -> save();
+    //                                     $resa -> save();
             
-                                    }
-                                    else{
+    //                                 }
+    //                                 else{
                                         
-                                    $count_tgx = $reservations = Reservation::where('tgx',$res->tgx)->count(); 
-                                    //  print_r(' $res->tgx :  '. $res->tgx);
+    //                                 $count_tgx = $reservations = Reservation::where('tgx',$res->tgx)->count(); 
+    //                                 //  print_r(' $res->tgx :  '. $res->tgx);
                                     
-                                        if (!Reservation::find($res->tgx)  ||  (Reservation::find($res->tgx) && $providerCode !=  $providerCode_1 && $clientCode !=  $clientCode_1 && $count_tgx == 1)){
+    //                                     if (!Reservation::find($res->tgx)  ||  (Reservation::find($res->tgx) && $providerCode !=  $providerCode_1 && $clientCode !=  $clientCode_1 && $count_tgx == 1)){
                                             
-                                            return  $res->Save_Res();
+    //                                         return  $res->Save_Res();
                                             
-                                        }
+    //                                     }
                                     
-                                    }
-                            //  }else{
-                            //       print_r($res->tgx);
-                            //      return  $res->Save_Res();
-                            //  }
+    //                                 }
+    //                         //  }else{
+    //                         //       print_r($res->tgx);
+    //                         //      return  $res->Save_Res();
+    //                         //  }
                             
 
-                        }
+    //                     }
 
-                        // dd($bookingDate,$result);
+    //                     // dd($bookingDate,$result);
                     
 
-                    }
+    //                 }
                     
-                } catch ( Exception $e) {
-                    echo $e -> getMessage();
-                }
-            //      $date1=$date2;              
+    //             } catch ( Exception $e) {
+    //                 echo $e -> getMessage();
+    //             }
+    //         //      $date1=$date2;              
                             
-            //      $date2 = date('Y-m-d', strtotime($date1 . " +7 day"));
-            // }
+    //         //      $date2 = date('Y-m-d', strtotime($date1 . " +7 day"));
+    //         // }
 
 
-        $Booking_to_D_1 =  date("Y-m-d");
+    //     $Booking_to_D_1 =  date("Y-m-d");
 
-            $Booking_from_D_1 = date('Y-m-d', strtotime($Booking_to_D . " - 1 day"));
+    //         $Booking_from_D_1 = date('Y-m-d', strtotime($Booking_to_D . " - 1 day"));
 
-            $accesToken_1 = "9+F3anOx2FTiBxeW0OPZ0ujTR5VYCbtrRALONciTk9c=";
-            $password_1 = "CyxL829raKXp";
+    //         $accesToken_1 = "9+F3anOx2FTiBxeW0OPZ0ujTR5VYCbtrRALONciTk9c=";
+    //         $password_1 = "CyxL829raKXp";
 
 
-                //         $access = array('accessToken' => $accesToken, 'password'=> $password );
-                // $bookingDate = array('from' => $date1, 'to'=> $date2);
+    //             //         $access = array('accessToken' => $accesToken, 'password'=> $password );
+    //             // $bookingDate = array('from' => $date1, 'to'=> $date2);
     
-                $access = array('accessToken' => $accesToken_1, 'password'=> $password_1 );
-            $bookingDate = array('from' => $Booking_from_D_1, 'to'=> $Booking_to_D_1);
+    //             $access = array('accessToken' => $accesToken_1, 'password'=> $password_1 );
+    //         $bookingDate = array('from' => $Booking_from_D_1, 'to'=> $Booking_to_D_1);
 
 
-            //   return $bookingDate;
-            $Req_W_CN = array("access" => $access,"bookingDate" => $bookingDate, "includeCancellations"=>true);
-            //  $dateapi=date('Y-m-d', strtotime('-1 day'));
+    //         //   return $bookingDate;
+    //         $Req_W_CN = array("access" => $access,"bookingDate" => $bookingDate, "includeCancellations"=>true);
+    //         //  $dateapi=date('Y-m-d', strtotime('-1 day'));
 
-            //  $reservation_alls=Reservation::whereDate('bookingDate','=',$dateapi)->get(); 
-        //   return $Req_W_CN;
-                try {
-                    $result = ReservationController::getData_API($Req_W_CN);
+    //         //  $reservation_alls=Reservation::whereDate('bookingDate','=',$dateapi)->get(); 
+    //     //   return $Req_W_CN;
+    //             try {
+    //                 $result = ReservationController::getData_API($Req_W_CN);
                     
-                        //   return $result["reservationSearchRS"];
-                    if ($result["reservationSearchRS"]){
+    //                     //   return $result["reservationSearchRS"];
+    //                 if ($result["reservationSearchRS"]){
                     
-                        foreach ($result["reservationSearchRS"] as $key => $value) {
+    //                     foreach ($result["reservationSearchRS"] as $key => $value) {
                             
-                                //  return $result["reservationSearchRS"][5];
-                            $res = new Res_obj($result["reservationSearchRS"][$key]);
+    //                             //  return $result["reservationSearchRS"][5];
+    //                         $res = new Res_obj($result["reservationSearchRS"][$key]);
 
-                            //  if()
+    //                         //  if()
                             
-                            //  $aa= Reservation::find('HBPVT');
-                            //  return $aa;
-                            //  return $aa -> cancellationPrice_currency;
-                            if ($res->status != "OK" && Reservation::find($res->tgx) ){
+    //                         //  $aa= Reservation::find('HBPVT');
+    //                         //  return $aa;
+    //                         //  return $aa -> cancellationPrice_currency;
+    //                         if ($res->status != "OK" && Reservation::find($res->tgx) ){
                                 
-                                $resa =  Reservation::find($res->tgx);
-                                //   return $resa->tgx;
-                                $resa -> status = $res->status;
-                                $resa -> summaryStatus = $res->summaryStatus;
-                                $resa -> internalStatus = $res->internalStatus;
-                                $resa -> bookingStatus = $res->bookingStatus;
+    //                             $resa =  Reservation::find($res->tgx);
+    //                             //   return $resa->tgx;
+    //                             $resa -> status = $res->status;
+    //                             $resa -> summaryStatus = $res->summaryStatus;
+    //                             $resa -> internalStatus = $res->internalStatus;
+    //                             $resa -> bookingStatus = $res->bookingStatus;
 
-                                $resa -> cancellationDate = $res->cancellationDate;
+    //                             $resa -> cancellationDate = $res->cancellationDate;
 
-                                //bookingDate = LastActionDate
-                                //   $lastActionDate= date('d-m-Y', strtotime($res->lastActionDate));
-                                $resa -> bookingDate = $res->lastActionDate;
+    //                             //bookingDate = LastActionDate
+    //                             //   $lastActionDate= date('d-m-Y', strtotime($res->lastActionDate));
+    //                             $resa -> bookingDate = $res->lastActionDate;
 
-                                //selling price =  cancellation price
-                                $resa -> sellingPrice_amount = $res->cancellationPrice_amount;
-                                $resa -> sellingPrice_currency = $res -> cancellationPrice_currency;
+    //                             //selling price =  cancellation price
+    //                             $resa -> sellingPrice_amount = $res->cancellationPrice_amount;
+    //                             $resa -> sellingPrice_currency = $res -> cancellationPrice_currency;
 
-                                    //reset intern calculated data
-                                    $resa -> un_pr_purchasing_EUR = 0;
-                                    $resa -> Commission_bdsc = 0;
-                                    $resa -> nights_count = 0;
-                                    $resa -> price_per_night = 0;
-                                    $resa ->  marge = 0;
+    //                                 //reset intern calculated data
+    //                                 $resa -> un_pr_purchasing_EUR = 0;
+    //                                 $resa -> Commission_bdsc = 0;
+    //                                 $resa -> nights_count = 0;
+    //                                 $resa -> price_per_night = 0;
+    //                                 $resa ->  marge = 0;
                         
-                                    $cancellationDate = explode(" ", $res->cancellationDate);
+    //                                 $cancellationDate = explode(" ", $res->cancellationDate);
 
-                                $QUOTE=Quote::where("DATE",$cancellationDate[0])->first(); 
-                                //    return $QUOTE->USD;
-                                        //united Price case Status CN
-                                        if($res -> cancellationPrice_currency == 'EUR'){
-                                            $diffrent = 1 ;
-                                        }elseif($res -> cancellationPrice_currency == 'USD'){
-                                            // return 'fff';
-                                            $diffrent = $QUOTE->USD;                                
-                                        }elseif($res -> cancellationPrice_currency == 'MAD'){
-                                            $diffrent = $QUOTE->MAD ;
-                                        }
-                                    // if($res->tgx=='HBPVT')
-                                    // {
-                                    //  return  'ggg'. $res -> cancellationPrice_currency;
-                                    // }
+    //                             $QUOTE=Quote::where("DATE",$cancellationDate[0])->first(); 
+    //                             //    return $QUOTE->USD;
+    //                                     //united Price case Status CN
+    //                                     if($res -> cancellationPrice_currency == 'EUR'){
+    //                                         $diffrent = 1 ;
+    //                                     }elseif($res -> cancellationPrice_currency == 'USD'){
+    //                                         // return 'fff';
+    //                                         $diffrent = $QUOTE->USD;                                
+    //                                     }elseif($res -> cancellationPrice_currency == 'MAD'){
+    //                                         $diffrent = $QUOTE->MAD ;
+    //                                     }
+    //                                 // if($res->tgx=='HBPVT')
+    //                                 // {
+    //                                 //  return  'ggg'. $res -> cancellationPrice_currency;
+    //                                 // }
                                         
-                                        if($res -> cancellationPrice_currency == null){
-                                        // return 'dd'.$res->tgx;
-                                        }else{
-                                            //  return  'ggg'.$res->tgx;
-                                            if($res -> cancellationPrice_currency == 'EUR')
-                                            { 
+    //                                     if($res -> cancellationPrice_currency == null){
+    //                                     // return 'dd'.$res->tgx;
+    //                                     }else{
+    //                                         //  return  'ggg'.$res->tgx;
+    //                                         if($res -> cancellationPrice_currency == 'EUR')
+    //                                         { 
                                                 
-                                                $un_pr_selling_EUR = $res -> cancellationPrice_amount * $diffrent;
+    //                                             $un_pr_selling_EUR = $res -> cancellationPrice_amount * $diffrent;
 
-                                                $resa -> un_pr_selling_EUR = $un_pr_selling_EUR;
+    //                                             $resa -> un_pr_selling_EUR = $un_pr_selling_EUR;
 
-                                            }
-                                            elseif($res -> cancellationPrice_currency == 'USD'){
+    //                                         }
+    //                                         elseif($res -> cancellationPrice_currency == 'USD'){
 
-                                                if($diffrent>=1)
-                                                {
-                                                $un_pr_selling_EUR = $res -> cancellationPrice_amount / $diffrent;
+    //                                             if($diffrent>=1)
+    //                                             {
+    //                                             $un_pr_selling_EUR = $res -> cancellationPrice_amount / $diffrent;
 
-                                                }else{
-                                                    $un_pr_selling_EUR = $res -> cancellationPrice_amount * $diffrent;
-                                                }
+    //                                             }else{
+    //                                                 $un_pr_selling_EUR = $res -> cancellationPrice_amount * $diffrent;
+    //                                             }
 
-                                                $resa -> un_pr_selling_EUR = $un_pr_selling_EUR;                             
-                                            }elseif($res -> cancellationPrice_currency == 'MAD'){
-                                                if($diffrent>=1)
-                                                {
-                                                $un_pr_selling_EUR = $res -> cancellationPrice_amount / $diffrent;  
-                                                }else{
-                                                    $un_pr_selling_EUR = $res -> cancellationPrice_amount * $diffrent;
-                                                }
+    //                                             $resa -> un_pr_selling_EUR = $un_pr_selling_EUR;                             
+    //                                         }elseif($res -> cancellationPrice_currency == 'MAD'){
+    //                                             if($diffrent>=1)
+    //                                             {
+    //                                             $un_pr_selling_EUR = $res -> cancellationPrice_amount / $diffrent;  
+    //                                             }else{
+    //                                                 $un_pr_selling_EUR = $res -> cancellationPrice_amount * $diffrent;
+    //                                             }
 
-                                            $resa -> un_pr_selling_EUR = $un_pr_selling_EUR;
-                                            }
+    //                                         $resa -> un_pr_selling_EUR = $un_pr_selling_EUR;
+    //                                         }
                                             
-                                        }
+    //                                     }
 
-                                        /////////////////////////
+    //                                     /////////////////////////
 
                                     
                                 
 
-                                $resa -> cancellationPrice_currency = $res -> cancellationPrice_currency ;
-                                $resa -> cancellationPrice_amount = $res -> cancellationPrice_amount ;
-                                $resa -> cancellationPrice_binding = $res -> cancellationPrice_binding ;
-                                $resa -> cancellationPrice_commission = $res -> cancellationPrice_commission;
+    //                             $resa -> cancellationPrice_currency = $res -> cancellationPrice_currency ;
+    //                             $resa -> cancellationPrice_amount = $res -> cancellationPrice_amount ;
+    //                             $resa -> cancellationPrice_binding = $res -> cancellationPrice_binding ;
+    //                             $resa -> cancellationPrice_commission = $res -> cancellationPrice_commission;
 
-                                $resa -> save();
+    //                             $resa -> save();
 
-                            }
-                            else{
+    //                         }
+    //                         else{
                                 
-                        //   return 'ggg'.Reservation::find($res->tgx);
-                                if (!Reservation::find($res->tgx)){
-                                    //  return 'ggg';
-                                    // return $res->status ;
-                            //    return  $res->get();
-                            return  $res->Save_Res();
-                                }
-                            }
+    //                     //   return 'ggg'.Reservation::find($res->tgx);
+    //                             if (!Reservation::find($res->tgx)){
+    //                                 //  return 'ggg';
+    //                                 // return $res->status ;
+    //                         //    return  $res->get();
+    //                         return  $res->Save_Res();
+    //                             }
+    //                         }
                             
 
-                        }
+    //                     }
 
-                        // dd($bookingDate,$result);
+    //                     // dd($bookingDate,$result);
                     
 
-                    }
+    //                 }
                     
-                } catch ( Exception $e) {
-                    // echo $e -> getMessage();
-                }
-            //      $date1=$date2;              
+    //             } catch ( Exception $e) {
+    //                 // echo $e -> getMessage();
+    //             }
+    //         //      $date1=$date2;              
                             
-            //      $date2 = date('Y-m-d', strtotime($date1 . " +7 day"));
+    //         //      $date2 = date('Y-m-d', strtotime($date1 . " +7 day"));
         
 
 
 
+    // }
+
+    public function getdata()
+{
+    $startDate = '2024-10-08'; // Date de départ
+    $endDate = date('Y-m-d');  // Date actuelle
+    $accesToken = "++CiXsABSFv0Y+3O941KDdJBroKDmz0vN1paiflJcN0=";
+    $password = "QVyoJPQXM89az4J4";
+
+    while (strtotime($startDate) < strtotime($endDate)) {
+        // Calcul de la plage de 6 jours
+        $bookingFrom = $startDate;
+        $bookingTo = date('Y-m-d', strtotime($bookingFrom . " +5 day"));
+        if (strtotime($bookingTo) > strtotime($endDate)) {
+            $bookingTo = $endDate; // S'assurer de ne pas dépasser la date actuelle
+        }
+
+        // Préparation des données pour l'API
+        $access = array('accessToken' => $accesToken, 'password' => $password);
+        $bookingDate = array('from' => $bookingFrom, 'to' => $bookingTo);
+        $Req_W_CN = array(
+            "access" => $access,
+            "bookingDate" => $bookingDate,
+            "includeCancellations" => true
+        );
+
+        try {
+            $result = ReservationController::getData_API($Req_W_CN);
+
+            if (isset($result["reservationSearchRS"]) && is_array($result["reservationSearchRS"])) {
+                foreach ($result["reservationSearchRS"] as $key => $value) {
+                    $res = new Res_obj($value);
+
+                    if ($res->status != 'KUN') {
+                        // Vérifier ou mettre à jour les données de la réservation
+                        $Reservation__check = Reservation::where("tgx", $res->tgx)
+                            ->where("providerCode", $res->providerCode)
+                            ->where("clientCode", $res->clientCode)
+                            ->first();
+
+                        if ($Reservation__check) {
+                            // Mettre à jour la réservation existante
+                            $Reservation__check->status = $res->status;
+                            $Reservation__check->bookingDate = $res->lastActionDate;
+                            $Reservation__check->save();
+                        } else {
+                            // Ajouter une nouvelle réservation
+                            $res->Save_Res();
+                        }
+                    }
+                }
+            }
+        } catch (Exception $e) {
+            echo "Erreur : " . $e->getMessage();
+        }
+
+        // Passer à la prochaine tranche de 6 jours
+        $startDate = date('Y-m-d', strtotime($bookingTo . " +1 day"));
     }
+}
+
   
   
   
