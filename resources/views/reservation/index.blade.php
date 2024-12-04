@@ -476,8 +476,8 @@ function getBadge($var){
 
         $.ajax({
             type : "GET",
-            url : "https://crm.bedsconnect.com/public/production/getdetail",
-            // url : "http://localhost/crmbedsconnectcom/public/production/getdetail",
+            url : "https://crm.bedsconnect.com/production/getdetail",
+            //  url : "http://localhost/crmbedsconnectcom/public/production/getdetail",
             data : {
                 "_token" : "{{ csrf_token() }}",
                 tgx : $tgx,
