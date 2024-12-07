@@ -1090,7 +1090,7 @@ class HomeController extends Controller
              
         $Client ->email = $data['email'];  
         $Client ->name = $data['username'];
-        $Client ->seller = $data['provider'];
+        $Client ->agency_id = $data['provider'];
         if(isset($data['passwords']))
         {
           $Client ->password = Hash::make($data['passwords']);  

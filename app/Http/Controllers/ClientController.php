@@ -112,7 +112,7 @@ class ClientController extends Controller
              ->whereDate('checkinDate','>=', $date1)
              ->select('*','reservations.providerName  as providerName','reservations.provider  as provider',
              'reservations.HotelName as Hotel_Name')     
-             ->where('reservations.providerName',$seller->seller)
+             ->where('reservations.providerName',$seller->agency_id)
              ->get();
       //   return $reservations;
             return view('client.liste_reservation_seller',array('Reservations'=>$reservations));  
@@ -198,37 +198,40 @@ class ClientController extends Controller
         
     }
     
-        function getData_API_Detail($data){
-    // return $data;
-      $urlSearch = "https://distribution.travelgatex.com/reservation/api/read";
-      $payload = json_encode($data);
-      $ch = curl_init($urlSearch);
-      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-      curl_setopt($ch, CURLINFO_HEADER_OUT, true);
-      curl_setopt($ch, CURLOPT_POST, true);
-      curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
-      curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-          'Content-Type: application/json',
-          'Content-Length: ' . strlen($payload))
-      );
+    function getData_API_Detail($data)
+    {
+        // return $data;
+        $urlSearch = "https://distribution.travelgatex.com/reservation/api/read";
+        $payload = json_encode($data);
+        $ch = curl_init($urlSearch);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLINFO_HEADER_OUT, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Content-Type: application/json',
+            'Content-Length: ' . strlen($payload))
+            );
 
-      $result = curl_exec($ch);
-      $response = json_decode($result,true);
-      curl_close($ch);
-      return $response;
-  }
-   public function getdetail(Request $request)
-  {
-     $data= $request->all();
-     $tgx = $data['tgx'];
-          $accesToken = "++CiXsABSFv0Y+3O941KDdJBroKDmz0vN1paiflJcN0=";
-          $password = "QVyoJPQXM89az4J4";
-          $access = array('accessToken' => $accesToken, 'password'=> $password );
-          $tgxLocators = array($tgx);
-          $Req_W_CN_DT = array("access" => $access,'tgxLocators' => $tgxLocators);
-          $result_detail = ClientController::getData_API_Detail($Req_W_CN_DT);
-        return  $result_detail['reservationReadRS'];
-  }
+        $result = curl_exec($ch);
+        $response = json_decode($result,true);
+        curl_close($ch);
+        return $response;
+
+
+    }
+    public function getdetail(Request $request)
+    {
+        $data= $request->all();
+        $tgx = $data['tgx'];
+            $accesToken = "++CiXsABSFv0Y+3O941KDdJBroKDmz0vN1paiflJcN0=";
+            $password = "QVyoJPQXM89az4J4";
+            $access = array('accessToken' => $accesToken, 'password'=> $password );
+            $tgxLocators = array($tgx);
+            $Req_W_CN_DT = array("access" => $access,'tgxLocators' => $tgxLocators);
+            $result_detail = ClientController::getData_API_Detail($Req_W_CN_DT);
+            return  $result_detail['reservationReadRS'];
+    }
     public function logout_seller(Request $request)
     {
         Auth::guard('Client_seller')->logout();
@@ -239,7 +242,7 @@ class ClientController extends Controller
       public function create(Request $request){
 
         $id= Auth::guard('Client_seller')->id() ;
-      $seller = ModelsClient_seller::where('id',$id)->first();
+        $seller = ModelsClient_seller::where('id',$id)->first();
         //   return $seller;
         $rangeCalendarFlatpickr = $request->input('rangeCalendarFlatpickr');
         $date_to=explode("to", $rangeCalendarFlatpickr);

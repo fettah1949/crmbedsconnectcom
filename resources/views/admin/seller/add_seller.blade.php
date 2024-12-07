@@ -136,8 +136,8 @@ function getBadge($var){
                                     </tr>
                                   
                                    
-                              @include('admin.seller.pop_up.pop_up_Edit_seller',['id'=>$row->id,'name'=>$row->name,'seller01'=>$row->seller,'email'=>$row->email])
-                              @include('admin.seller.pop_up.pop_up_delete_seller',['id'=>$row->id,'name'=>$row->name,'seller01'=>$row->seller,'email'=>$row->email])
+                              @include('admin.seller.pop_up.pop_up_Edit_seller',['id'=>$row->id,'name'=>$row->name,'seller01'=>$row->agency_id,'email'=>$row->email])
+                              @include('admin.seller.pop_up.pop_up_delete_seller',['id'=>$row->id,'name'=>$row->name,'seller01'=>$row->agency_id,'email'=>$row->email])
                                  
                                     @endforeach 
                                 </tbody>
