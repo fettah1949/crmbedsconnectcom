@@ -73,7 +73,7 @@ Route::group(['middleware' => 'auth'] , function() {
         Route::resource('reservation', ReservationController::class);
         
         
-     
+        Route::put('/reservation/update/{tgx}', 'ReservationController@update')->name('reservation.update');
 
 
        

@@ -1823,37 +1823,38 @@ class ReservationController extends Controller
         if (Auth::guard()->user()->role==1)
         {
           $request->validate([
-            'hotelName' => 'nullable|string',
-            'mainGuestName' => 'nullable|string',
-            'providerName' => 'nullable|string',
-            'bookingDate' => 'nullable|date',
-            'checkinDate' => 'nullable|date',
-            'checkoutDate' => 'nullable|date',
-            'status' => 'nullable|string',
-            'cancellationDate' => 'nullable|date',
-            'cancellationPrice_amount' => 'nullable|numeric',
-            'providerPrice_currency' => 'nullable|string',
-            'providerPrice_amount' => 'nullable|numeric',
-            'sellingPrice_currency' => 'nullable|string',
-            'sellingPrice_amount' => 'nullable|numeric',
-            'un_pr_selling_EUR' => 'nullable|numeric',
-            'un_pr_purchasing_EUR' => 'nullable|numeric',
-            'invoice_id_seller' => 'nullable|string',
-            'invoice_status_seller' => 'nullable|string',
-            'invoice_id_buyer' => 'nullable|string',
-            'invoice_status_buyer' => 'nullable|string',
-            'Payment_Status' => 'nullable|string',
-            'marge' => 'nullable|numeric',
-            'Commission_bdsc' => 'nullable|numeric',
-            'price_per_night' => 'nullable|numeric',
-            'HCN_AC' => 'nullable|string',
-            'providerCode' => 'nullable|string',
+            'hotelName' => 'nullable',
+            'mainGuestName' => 'nullable',
+            'providerName' => 'nullable',
+            'bookingDate' => 'nullable',
+            'checkinDate' => 'nullable',
+            'checkoutDate' => 'nullable',
+            'status' => 'nullable',
+            'cancellationDate' => 'nullable',
+            'cancellationPrice_amount' => 'nullable',
+            'providerPrice_currency' => 'nullable',
+            'providerPrice_amount' => 'nullable',
+            'sellingPrice_currency' => 'nullable',
+            'sellingPrice_amount' => 'nullable',
+            'un_pr_selling_EUR' => 'nullable',
+            'un_pr_purchasing_EUR' => 'nullable',
+            'invoice_id_seller' => 'nullable',
+            'invoice_status_seller' => 'nullable',
+            'invoice_id_buyer' => 'nullable',
+            'invoice_status_buyer' => 'nullable',
+            'Payment_Status' => 'nullable',
+            'marge' => 'nullable',
+            'Commission_bdsc' => 'nullable',
+            'price_per_night' => 'nullable',
+            'HCN_AC' => 'nullable',
+            'providerCode' => 'nullable',
 
 
             ]);
 
             // return $request->all();
-        
+            $data = $request->all();
+            $reservation =  Reservation::find($data['tgx']);
             $reservation->update($request->all());  
         }
         else

@@ -14,7 +14,7 @@ aria-hidden="true">
             @csrf
             <input type="hidden" name="tgx" value="{{ $tgx }}" />
         <div class="modal-body">
-            {{-- @method('PUT') --}}
+            @method('PUT')
             <div class="row">
                     {{-- <div class="col-sm-3">
                         <div class="form-group col-sm-auto ">
