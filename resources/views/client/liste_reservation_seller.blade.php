@@ -416,7 +416,7 @@ function check_code()
 
         $.ajax({
             type : "GET",
-            url : "https://crm.bedsconnect.com/public/getdetail",
+            url : "https://crm.bedsconnect.com/getdetail",
             data : {
                 "_token" : "{{ csrf_token() }}",
                 tgx : $tgx,
