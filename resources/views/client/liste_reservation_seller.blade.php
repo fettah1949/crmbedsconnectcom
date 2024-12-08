@@ -91,7 +91,7 @@ function getBadge($var){
         <ul class="navbar-item theme-brand flex-row  text-center">
             <li class="nav-item theme-logo">
                 <a >
-                    <img src="{{asset('storage/img/90x90.jpg')}}" class="navbar-logo" alt="logo">
+                    <img src="{{asset('assets/img/90x90.jpg')}}" class="navbar-logo" alt="logo">
                 </a>
             </li>
             <li class="nav-item theme-text">
@@ -110,7 +110,7 @@ function getBadge($var){
             
             <li class="nav-item dropdown user-profile-dropdown">
                 <a style="color: red" href="javascript:void(0);" class="nav-link dropdown-toggle user" id="userProfileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    <img src="{{asset('storage/img/90x90.jpg')}}" alt="avatar">  Sign Out
+                    <img src="{{asset('assets/img/90x90.jpg')}}" alt="avatar">  Sign Out
                 </a>
                 <div class="dropdown-menu position-absolute" aria-labelledby="userProfileDropdown">
                     <div class="">
