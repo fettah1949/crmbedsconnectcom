@@ -215,13 +215,13 @@ input[type="submit"]:active
 }
 
 .logo{
-	width: 117px;
-    height: 104px;
+	width: 69px;
+    height: 58px;
     position: absolute;
-   
-	z-index: 12;
-    top: 0%;
-	left: 125px;
+    z-index: 12;
+    top: 8%;
+    left: 155px;
+	border-radius: 38%;
 
 
 }
