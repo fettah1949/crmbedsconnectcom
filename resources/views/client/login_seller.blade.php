@@ -15,7 +15,7 @@
 		<form autocomplete="off" action="{{url('/login_auth_seller')}}" method="POST">
 			@csrf
 			<h2>Sign in</h2>
-			<img class=" rounded-circle logo"  src={{ asset('images/logo_v1.jpg') }} alt="logo">
+			<img class=" rounded-circle logo"  src={{ asset('images/Logo_bed.jpg') }} alt="logo">
 
 			
 			
