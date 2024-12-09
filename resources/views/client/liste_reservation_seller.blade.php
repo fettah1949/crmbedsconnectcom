@@ -111,7 +111,7 @@ function getBadge($var){
             
             <li class="nav-item dropdown user-profile-dropdown">
                 <a style="color: red" href="javascript:void(0);" class="nav-link dropdown-toggle user" id="userProfileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    <img src="{{asset('assets/img/90x90.jpg')}}" alt="avatar">  Sign Out
+                    <img  src={{ asset('images/logout.png') }} alt="avatar">  Sign Out
                 </a>
                 <div class="dropdown-menu position-absolute" aria-labelledby="userProfileDropdown">
                     <div class="">
