@@ -463,7 +463,7 @@ function getBadge($var){
 //     $(".mt").addClass("sorting_desc");
 // });
     // });
-        function getDetailAjax($tgx)
+    function getDetailAjax($tgx)
     {
           $('#formattedResponse').html("");
                     $('#formattedResponse_1').html("");
