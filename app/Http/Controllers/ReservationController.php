@@ -31,7 +31,7 @@ class ReservationController extends Controller
          
       
             //    die('ffffff');
-         ReservationController::crono_taux();
+        //  ReservationController::crono_taux();
         ReservationController::getdata();
    
 
@@ -265,12 +265,12 @@ class ReservationController extends Controller
 
        public function crono_taux()
        {
-            // return 'fettah.';
+           //  return 'fettah.';
             $dt =  Carbon::now();
             $dt= $dt->format('Y-m-d');
             $dateapi=date('Y-m-d');
             $QUOTE=Quote::where("DATE",$dt)->count(); 
-            //    return  $QUOTE;
+          return  $dt;
            if($QUOTE==0)
            {
                $curl = curl_init();
