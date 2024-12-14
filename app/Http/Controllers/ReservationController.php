@@ -265,12 +265,12 @@ class ReservationController extends Controller
 
        public function crono_taux()
        {
-           //  return 'fettah.';
+            // return 'fettah.';
             $dt =  Carbon::now();
             $dt= $dt->format('Y-m-d');
             $dateapi=date('Y-m-d');
             $QUOTE=Quote::where("DATE",$dt)->count(); 
-          return  $dt;
+            //    return  $QUOTE;
            if($QUOTE==0)
            {
                $curl = curl_init();
