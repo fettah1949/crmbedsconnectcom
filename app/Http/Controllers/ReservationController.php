@@ -32,7 +32,7 @@ class ReservationController extends Controller
       
             //    die('ffffff');
         //  ReservationController::crono_taux();
-        ReservationController::getdata();
+        // ReservationController::getdata();
    
 
 
