@@ -31,8 +31,8 @@ class ReservationController extends Controller
          
       
             //    die('ffffff');
-        //   ReservationController::crono_taux();
-        // ReservationController::getdata();
+        //    ReservationController::crono_taux();
+         ReservationController::getdata();
    
 
 
@@ -1977,7 +1977,7 @@ class ReservationController extends Controller
                                     if ($res->status != "OK" && $res->status != "KUN" && Reservation::find($res->tgx) &&  $providerCode ==  $providerCode_1 &&  $clientCode ==  $clientCode_1 ){
                                             //   return '1';
                                             //  return $result["reservationSearchRS"][$key]["locators"]["client"];
-                                            $resa = Reservation::where("tgx",$res->tgx)->where("provider",$res->provider)->first(); 
+                                            $resa = Reservation::where("tgx",$res->tgx)->where("providerCode",$res->providerCode)->where("clientCode",$res->clientCode)->first(); 
                                             //   return $resa->tgx;
                                             $resa -> status = $res->status;
                                             $resa -> summaryStatus = $res->summaryStatus;
