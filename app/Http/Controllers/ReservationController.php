@@ -263,46 +263,91 @@ class ReservationController extends Controller
         return  $options ;
     }
 
-    //    public function crono_taux()
-    //    {
-    //         // return 'fettah.';
-    //         $dt =  Carbon::now();
-    //         $dt= $dt->format('Y-m-d');
-    //         $dateapi=date('Y-m-d');
-    //         $QUOTE=Quote::where("DATE",$dt)->count(); 
-    //         //    return  $QUOTE;
-    //        if($QUOTE==0)
-    //        {
-    //            $curl = curl_init();
+       public function crono_taux()
+       {
+            // return 'fettah.';
+            $dt =  Carbon::now();
+            $dt= $dt->format('Y-m-d');
+            $dateapi=date('Y-m-d');
+            $QUOTE=Quote::where("DATE",$dt)->count(); 
+            //    return  $QUOTE;
+           if($QUOTE==0)
+           {
+               $curl = curl_init();
 
-    //          curl_setopt_array($curl, array(
-    //            CURLOPT_URL => "https://api.apilayer.com/exchangerates_data/".$dateapi."?symbols=eur&base=usd",     
-    //           CURLOPT_HTTPHEADER => array(
-    //            "Content-Type: text/plain",
-    //            "apikey: 3qpOD41mwUS02koZK7p1EV8t7m7x4wwR"
-    //          ),
-    //          CURLOPT_RETURNTRANSFER => true,
-    //          CURLOPT_ENCODING => "",
-    //          CURLOPT_MAXREDIRS => 10,
-    //          CURLOPT_TIMEOUT => 0,
-    //          CURLOPT_FOLLOWLOCATION => true,
-    //          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-    //          CURLOPT_CUSTOMREQUEST => "GET"
-    //           ));
+             curl_setopt_array($curl, array(
+               CURLOPT_URL => "https://api.apilayer.com/exchangerates_data/".$dateapi."?symbols=eur&base=usd",     
+              CURLOPT_HTTPHEADER => array(
+               "Content-Type: text/plain",
+               "apikey: 3qpOD41mwUS02koZK7p1EV8t7m7x4wwR"
+             ),
+             CURLOPT_RETURNTRANSFER => true,
+             CURLOPT_ENCODING => "",
+             CURLOPT_MAXREDIRS => 10,
+             CURLOPT_TIMEOUT => 0,
+             CURLOPT_FOLLOWLOCATION => true,
+             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+             CURLOPT_CUSTOMREQUEST => "GET"
+              ));
            
-    //             $response = curl_exec($curl);
+                $response = curl_exec($curl);
                 
-    //             curl_close($curl);
-    //             // return $response;
-    //             $json = json_decode($response, true);  
-    //             $eur_usd= $json['rates']['EUR'];
-    //             $curl = curl_init();
+                curl_close($curl);
+                // return $response;
+                $json = json_decode($response, true);  
+                $eur_usd= $json['rates']['EUR'];
+                $curl = curl_init();
         
+                curl_setopt_array($curl, array(
+                    CURLOPT_URL => "https://api.apilayer.com/exchangerates_data/".$dateapi."?symbols=eur&base=mad",     
+                    CURLOPT_HTTPHEADER => array(
+                    "Content-Type: text/plain",
+                    "apikey: 3qpOD41mwUS02koZK7p1EV8t7m7x4wwR"
+                    ),
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_ENCODING => "",
+                    CURLOPT_MAXREDIRS => 10,
+                    CURLOPT_TIMEOUT => 0,
+                    CURLOPT_FOLLOWLOCATION => true,
+                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                    CURLOPT_CUSTOMREQUEST => "GET"
+                ));
+                
+                $response = curl_exec($curl);
+                
+                curl_close($curl);
+                // return $response;
+                $json = json_decode($response, true);  
+                $eur_mad= $json['rates']['EUR'];
+        
+  
+                Quote::create([
+                    'USD'=>$eur_usd,
+                    'MAD'=>$eur_mad,
+                    'DATE'=>$dt,
+                    
+                ]);
+           }
+       }
+    // public function crono_taux()
+    // {
+    //     // Définir les dates de début et de fin
+    //     $startDate = Carbon::createFromFormat('Y-m-d', '2024-10-08');
+    //     $endDate = Carbon::now()->format('Y-m-d');
+    //     $currentDate = $startDate;
+
+    //     while ($currentDate <= $endDate) {
+    //         // Vérifier si un enregistrement existe déjà pour la date
+    //         $QUOTE = Quote::where("DATE", $currentDate->format('Y-m-d'))->count();
+
+    //         if ($QUOTE == 0) {
+    //             // Effectuer la requête pour USD -> EUR
+    //             $curl = curl_init();
     //             curl_setopt_array($curl, array(
-    //                 CURLOPT_URL => "https://api.apilayer.com/exchangerates_data/".$dateapi."?symbols=eur&base=mad",     
+    //                 CURLOPT_URL => "https://api.apilayer.com/exchangerates_data/" . $currentDate->format('Y-m-d') . "?symbols=eur&base=usd",
     //                 CURLOPT_HTTPHEADER => array(
-    //                 "Content-Type: text/plain",
-    //                 "apikey: 3qpOD41mwUS02koZK7p1EV8t7m7x4wwR"
+    //                     "Content-Type: text/plain",
+    //                     "apikey: uoZlXr97d3IWrlVRKKWZNVseukdcYw3J"
     //                 ),
     //                 CURLOPT_RETURNTRANSFER => true,
     //                 CURLOPT_ENCODING => "",
@@ -312,96 +357,51 @@ class ReservationController extends Controller
     //                 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
     //                 CURLOPT_CUSTOMREQUEST => "GET"
     //             ));
-                
     //             $response = curl_exec($curl);
-                
     //             curl_close($curl);
-    //             // return $response;
-    //             $json = json_decode($response, true);  
-    //             $eur_mad= $json['rates']['EUR'];
-        
-  
-    //             Quote::create([
-    //                 'USD'=>$eur_usd,
-    //                 'MAD'=>$eur_mad,
-    //                 'DATE'=>$dt,
-                    
-    //             ]);
-    //        }
-    //    }
-    public function crono_taux()
-    {
-        // Définir les dates de début et de fin
-        $startDate = Carbon::createFromFormat('Y-m-d', '2025-01-29');
-        $endDate = Carbon::now()->format('Y-m-d');
-        $currentDate = $startDate;
 
-        while ($currentDate <= $endDate) {
-            // Vérifier si un enregistrement existe déjà pour la date
-            $QUOTE = Quote::where("DATE", $currentDate->format('Y-m-d'))->count();
+    //             $json = json_decode($response, true);
+    //             $eur_usd = $json['rates']['EUR'] ?? null;
 
-            if ($QUOTE == 0) {
-                // Effectuer la requête pour USD -> EUR
-                $curl = curl_init();
-                curl_setopt_array($curl, array(
-                    CURLOPT_URL => "https://api.apilayer.com/exchangerates_data/" . $currentDate->format('Y-m-d') . "?symbols=eur&base=usd",
-                    CURLOPT_HTTPHEADER => array(
-                        "Content-Type: text/plain",
-                        "apikey: uoZlXr97d3IWrlVRKKWZNVseukdcYw3J"
-                    ),
-                    CURLOPT_RETURNTRANSFER => true,
-                    CURLOPT_ENCODING => "",
-                    CURLOPT_MAXREDIRS => 10,
-                    CURLOPT_TIMEOUT => 0,
-                    CURLOPT_FOLLOWLOCATION => true,
-                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                    CURLOPT_CUSTOMREQUEST => "GET"
-                ));
-                $response = curl_exec($curl);
-                curl_close($curl);
+    //             // Effectuer la requête pour MAD -> EUR
+    //             $curl = curl_init();
+    //             curl_setopt_array($curl, array(
+    //                 CURLOPT_URL => "https://api.apilayer.com/exchangerates_data/" . $currentDate->format('Y-m-d') . "?symbols=eur&base=mad",
+    //                 CURLOPT_HTTPHEADER => array(
+    //                     "Content-Type: text/plain",
+    //                     "apikey: uoZlXr97d3IWrlVRKKWZNVseukdcYw3J"
+    //                 ),
+    //                 CURLOPT_RETURNTRANSFER => true,
+    //                 CURLOPT_ENCODING => "",
+    //                 CURLOPT_MAXREDIRS => 10,
+    //                 CURLOPT_TIMEOUT => 0,
+    //                 CURLOPT_FOLLOWLOCATION => true,
+    //                 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    //                 CURLOPT_CUSTOMREQUEST => "GET"
+    //             ));
+    //             $response = curl_exec($curl);
+    //             curl_close($curl);
 
-                $json = json_decode($response, true);
-                $eur_usd = $json['rates']['EUR'] ?? null;
+    //             $json = json_decode($response, true);
+    //             $eur_mad = $json['rates']['EUR'] ?? null;
 
-                // Effectuer la requête pour MAD -> EUR
-                $curl = curl_init();
-                curl_setopt_array($curl, array(
-                    CURLOPT_URL => "https://api.apilayer.com/exchangerates_data/" . $currentDate->format('Y-m-d') . "?symbols=eur&base=mad",
-                    CURLOPT_HTTPHEADER => array(
-                        "Content-Type: text/plain",
-                        "apikey: uoZlXr97d3IWrlVRKKWZNVseukdcYw3J"
-                    ),
-                    CURLOPT_RETURNTRANSFER => true,
-                    CURLOPT_ENCODING => "",
-                    CURLOPT_MAXREDIRS => 10,
-                    CURLOPT_TIMEOUT => 0,
-                    CURLOPT_FOLLOWLOCATION => true,
-                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                    CURLOPT_CUSTOMREQUEST => "GET"
-                ));
-                $response = curl_exec($curl);
-                curl_close($curl);
+    //             // Vérification pour éviter les erreurs si l'API ne retourne pas de données
+    //             if ($eur_usd && $eur_mad) {
+    //                 Quote::create([
+    //                     'USD' => $eur_usd,
+    //                     'MAD' => $eur_mad,
+    //                     'DATE' => $currentDate->format('Y-m-d'),
+    //                 ]);
+    //             } else {
+    //                 // Loguer une erreur si les données ne sont pas disponibles
+    //                 Log::error("Taux de change non disponible pour la date : " . $currentDate->format('Y-m-d'));
+    //             }
+    //         }
 
-                $json = json_decode($response, true);
-                $eur_mad = $json['rates']['EUR'] ?? null;
-
-                // Vérification pour éviter les erreurs si l'API ne retourne pas de données
-                if ($eur_usd && $eur_mad) {
-                    Quote::create([
-                        'USD' => $eur_usd,
-                        'MAD' => $eur_mad,
-                        'DATE' => $currentDate->format('Y-m-d'),
-                    ]);
-                } else {
-                    // Loguer une erreur si les données ne sont pas disponibles
-                    Log::error("Taux de change non disponible pour la date : " . $currentDate->format('Y-m-d'));
-                }
-            }
-
-            // Passer à la date suivante
-            $currentDate->addDay();
-        }
-    }
+    //         // Passer à la date suivante
+    //         $currentDate->addDay();
+    //     }
+    // }
 
        public function commission_rese(){
            $i =0;
