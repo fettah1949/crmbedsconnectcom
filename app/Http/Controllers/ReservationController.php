@@ -33,6 +33,7 @@ class ReservationController extends Controller
             //    die('ffffff');
         //    ReservationController::crono_taux();
          ReservationController::getdata();
+         ReservationController::commission_rese();
    
 
 
@@ -406,8 +407,8 @@ class ReservationController extends Controller
        public function commission_rese(){
            $i =0;
             $reservations = Reservation::
-                            where('sellingPrice_binding',1)->get();
-                                // return  $reservations;
+                            where('sellingPrice_binding',1)->where('commission_bdsc_binding',Null)->get();
+                                return  $reservations;
             foreach ($reservations as $reservation)
             {
                 // echo $i++ ;
