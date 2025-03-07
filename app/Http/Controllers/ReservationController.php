@@ -31,8 +31,8 @@ class ReservationController extends Controller
          
       
             //    die('ffffff');
-        //    ReservationController::crono_taux();
-       return  ReservationController::getdata();
+           ReservationController::crono_taux();
+         ReservationController::getdata();
           ReservationController::commission_rese();
    
 
@@ -2078,7 +2078,7 @@ class ReservationController extends Controller
                                     //   print_r(' $res->tgx :  '. $res->tgx);
                                     
                                         if (!Reservation::find($res->tgx)  ||  (Reservation::find($res->tgx) && $providerCode !=  $providerCode_1 && $clientCode !=  $clientCode_1 && $count_tgx == 1)){
-                                            print_r(' $res->tgx :  '. $res->tgx); 
+                                            // print_r(' $res->tgx :  '. $res->tgx); 
                                             return  $res->Save_Res();
                                             
                                         }
