@@ -32,7 +32,7 @@ class ReservationController extends Controller
       
             //    die('ffffff');
         //    ReservationController::crono_taux();
-        return  ReservationController::getdata();
+         ReservationController::getdata();
           ReservationController::commission_rese();
    
 
@@ -1946,7 +1946,7 @@ class ReservationController extends Controller
                 try {
                     $result = ReservationController::getData_API($Req_W_CN);
                     //print_r(" 1  ") ;
-              return $result["reservationSearchRS"];
+            //   return $result["reservationSearchRS"];
                     // echo 'fettah : '. $result["reservationSearchRS"];
                     
                     if ($result["reservationSearchRS"]){
