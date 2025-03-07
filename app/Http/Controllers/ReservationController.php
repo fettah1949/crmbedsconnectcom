@@ -32,7 +32,7 @@ class ReservationController extends Controller
       
             //    die('ffffff');
         //    ReservationController::crono_taux();
-         ReservationController::getdata();
+        return  ReservationController::getdata();
           ReservationController::commission_rese();
    
 
@@ -409,6 +409,7 @@ class ReservationController extends Controller
             $reservations = Reservation::
                             where('sellingPrice_binding',1)->where('commission_bdsc_binding',Null)->get();
                                 // return  $reservations;
+            
             foreach ($reservations as $reservation)
             {
                 // echo $i++ ;
@@ -420,12 +421,17 @@ class ReservationController extends Controller
                      {
                          $commission_selling = ($reservationsfirst-> sellingPrice_amount *  ($reservationsfirst-> sellingPrice_commission / 100) ) ;
                          $newpricselling =$reservationsfirst-> sellingPrice_amount - $commission_selling;
+
                          $reservationsfirst-> sellingPrice_amount_binding = $newpricselling ;
+
                          $commission_provider =  ($reservationsfirst-> providerPrice_amount *  ($reservationsfirst-> providerPrice_commission / 100) ) ;
                          $newpricprovider =$reservationsfirst-> providerPrice_amount - $commission_provider;
+
                          $reservationsfirst-> providerPrice_amount_binding = $newpricprovider ;
-                         $reservationsfirst-> marge_binding =  $newpricselling - $newpricprovider;
+
+                         $reservationsfirst-> marge_binding =  $newpricselling - $newpricprovider; 
                          $reservationsfirst->commission_bdsc_binding = ($newpricselling -  $newpricprovider) /  $newpricprovider;
+                         
                          $reservationsfirst -> save();
                         
                     }
@@ -1940,7 +1946,7 @@ class ReservationController extends Controller
                 try {
                     $result = ReservationController::getData_API($Req_W_CN);
                     //print_r(" 1  ") ;
-            //   return $result["reservationSearchRS"];
+              return $result["reservationSearchRS"];
                     // echo 'fettah : '. $result["reservationSearchRS"];
                     
                     if ($result["reservationSearchRS"]){
