@@ -66,7 +66,8 @@ function getBadge($var){
     
 @section('content')
 
-<button class="btn btn-outline-success mb-2" data-toggle="modal" data-target="#add_seller" target="_blank">Ajouter Buyer</button>
+<button class="btn btn-outline-success mb-2" data-toggle="modal" data-target="#add_buyer" target="_blank">Ajouter Buyer</button>
+<button class="btn btn-outline-success mb-2" data-toggle="modal" data-target="#add_seller" target="_blank">Ajouter seller</button>
     <div class="main-container widget-content widget-content-area br-6" id="container">
 
         
@@ -82,9 +83,9 @@ function getBadge($var){
                                 <thead>
                                     <tr>
                                  
-                                            <th  >Nom </th>
+                                            <th>Nom </th>
                                             <th>Email </th>
-                                            <th>Seller</th>
+                                            <th>Role</th>
                                         
                                     
                                          
@@ -102,7 +103,7 @@ function getBadge($var){
                                  
                                        <td >{{ $row->name }}</td>
                                         <td >{{ $row->email }}</td>
-                                        <td >{{ $row->seller }}</td>
+                                        <td >{{ $row->role }}</td>
                                         
                                   
                                         <td class='text-center'> 
@@ -144,6 +145,7 @@ function getBadge($var){
                             </table>
 
             @include('admin.seller.pop_up.pop_up_add_seller')
+            @include('admin.seller.pop_up.pop_up_add_buyer')
     </div>
  
 

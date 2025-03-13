@@ -1,9 +1,9 @@
-<div class="modal fade" id="add_seller" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop"
+<div class="modal fade" id="add_buyer" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop"
 aria-hidden="true">
 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
     <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="deleteModalLabel2">ADD Seller </h5>
+            <h5 class="modal-title" id="deleteModalLabel2">ADD BUYER </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <i aria-hidden="true" class="ki ki-close"></i>
             </button>
@@ -11,18 +11,18 @@ aria-hidden="true">
         <form class="text-left"  action="{{url('/seller/add_register')}}" method="POST" autocomplete="off">
             @csrf
             <div class="form">
-                <input type="hidden" name="role" id="role" value="seller">
+                <input type="hidden" name="role" id="role" value="buyer">
                 <div id="username-field" class="field-wrapper input">
                     <label for="username">Name</label>
                     {{-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> --}}
                     <input required id="nom" name="nom" type="text" class="form-control" placeholder="Name">
                 </div>
                 <div id="username-field" class="field-wrapper input">
-                    <label for="seller">Seller</label>
+                    <label for="seller">Buyer</label>
                 <select required class="form-control "  id="provider" name="provider" >
-                    <option value="">Seller</option>
+                    <option value="">Buyer</option>
                    
-                     @foreach ($sellers as $seller)
+                     @foreach ($BUYERS as $seller)
                      <option  value="{{ $seller->Agency_ID }}">{{ $seller->Agency_ID }}</option>
                      @endforeach
                </select>

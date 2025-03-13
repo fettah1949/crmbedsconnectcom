@@ -16,6 +16,7 @@ class Client_seller extends Authenticatable
         'email',
         'password',
         'agency_id',
+        'role',
         
     ];
 }

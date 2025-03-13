@@ -1045,12 +1045,12 @@ class HomeController extends Controller
     }
     public function seller_setup()
     {
-        $sellers = Agencycontact::where('Contact_Type','BUYER')->get();
-        // $sellers = Agencycontact::where('Contact_Type','SELLER')->get();
+        $BUYER = Agencycontact::where('Contact_Type','BUYER')->get();
+         $sellers = Agencycontact::where('Contact_Type','SELLER')->get();
         $Client_seller = Client_seller::All();
 
         // return $sellers;
-        return view('admin.seller.add_seller',array('Client_seller'=>$Client_seller,'sellers'=>$sellers));  
+        return view('admin.seller.add_seller',array('Client_seller'=>$Client_seller,'sellers'=>$sellers,'BUYERS'=>$BUYER));  
     }
     public function add_register(Request $request)
     {
@@ -1066,16 +1066,24 @@ class HomeController extends Controller
             'email'=>$data['Email_seller'],
             'name'=>$data['nom'],
             'agency_id'=>$data['provider'],
+            'role'=>$data['role'],
             'password' => Hash::make($data['password_seller']),
             'verification_code'=> sha1(time())
 
         ]);
         // return $cl;
-        $sellers = Agencycontact::where('Contact_Type','BUYER')->get();
+        $BUYER = Agencycontact::where('Contact_Type','BUYER')->get();
+         $sellers = Agencycontact::where('Contact_Type','SELLER')->get();
         $Client_seller = Client_seller::All();
+
+        return redirect()->back()
+        ->with('status', 'User added successfully.')
+        ->with('Client_seller', $Client_seller)
+        ->with('sellers', $sellers)
+        ->with('BUYERS', $BUYER);
         
-        return view('admin.seller.add_seller',array('Client_seller'=>$Client_seller,'sellers'=>$sellers))
-        ->with('status', "Le Seller est crée avec success  " );  
+        // return view('admin.seller.add_seller',array('Client_seller'=>$Client_seller,'sellers'=>$sellers,'BUYERS'=>$BUYER))
+        // ->with('status', "Le Seller est crée avec success  " );  
     }
     public function edit_register(Request $request)
     {
