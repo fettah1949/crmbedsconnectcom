@@ -30,7 +30,7 @@ class ReservationController extends Controller
     {
          
       
-               die('Error conversion to  requested');
+            //    die('Error conversion to  requested');
            ReservationController::crono_taux();
            ReservationController::getdata();
           ReservationController::commission_rese();
