@@ -423,13 +423,13 @@ class ReservationController extends Controller
                                     
 
 
-                         $newpricselling = $reservationsfirst-> sellingPrice_amount - $commission_selling;
+                         $newpricselling = $reservationsfirst->un_pr_selling_EUR - $commission_selling;
                                      
 
                          $reservationsfirst-> sellingPrice_amount_binding = $newpricselling ;
 
                          $commission_provider =  ($reservationsfirst-> un_pr_purchasing_EUR *  ($reservationsfirst-> providerPrice_commission / 100) ) ;
-                         $newpricprovider =$reservationsfirst-> providerPrice_amount - $commission_provider;
+                         $newpricprovider =$reservationsfirst->un_pr_purchasing_EUR - $commission_provider;
 
                         
                  
