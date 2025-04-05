@@ -407,7 +407,7 @@ class ReservationController extends Controller
        public function commission_rese(){
            $i =0;
             $reservations = Reservation::
-                            where('sellingPrice_binding',1)->where('commission_bdsc_binding',Null)->get();
+                            where('sellingPrice_binding',1)->where('tgx',"AAACLA")->get();
                                 // return  $reservations;
             
             foreach ($reservations as $reservation)
@@ -419,15 +419,24 @@ class ReservationController extends Controller
             
                      if($reservationsfirst->sellingPrice_binding==1)
                      {
-                         $commission_selling = ($reservationsfirst-> sellingPrice_amount *  ($reservationsfirst-> sellingPrice_commission / 100) ) ;
-                         $newpricselling =$reservationsfirst-> sellingPrice_amount - $commission_selling;
+                         $commission_selling = ($reservationsfirst-> un_pr_selling_EUR *  ($reservationsfirst-> sellingPrice_commission / 100) ) ;
+                                    
+
+
+                         $newpricselling = $reservationsfirst-> sellingPrice_amount - $commission_selling;
+                                     
 
                          $reservationsfirst-> sellingPrice_amount_binding = $newpricselling ;
 
-                         $commission_provider =  ($reservationsfirst-> providerPrice_amount *  ($reservationsfirst-> providerPrice_commission / 100) ) ;
+                         $commission_provider =  ($reservationsfirst-> un_pr_purchasing_EUR *  ($reservationsfirst-> providerPrice_commission / 100) ) ;
                          $newpricprovider =$reservationsfirst-> providerPrice_amount - $commission_provider;
 
+                        
+                 
+
                          $reservationsfirst-> providerPrice_amount_binding = $newpricprovider ;
+                        //  -----------------------------------------
+
 
                          $reservationsfirst-> marge_binding =  $newpricselling - $newpricprovider; 
                          $reservationsfirst->commission_bdsc_binding = ($newpricselling -  $newpricprovider) /  $newpricprovider;
