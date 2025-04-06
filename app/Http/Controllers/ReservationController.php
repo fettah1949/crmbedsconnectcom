@@ -1668,13 +1668,13 @@ class ReservationController extends Controller
                 // $t_un_sell = $t_un_sell + $reser->un_pr_selling_EUR;
                 // $t_un_purshase = $t_un_purshase + $reser->un_pr_purchasing_EUR;
 
-                if($reser->sellingPrice_binding = 1){
+                if($reser->sellingPrice_binding == 1){
                     $t_un_sell = $t_un_sell + $reser->sellingPrice_amount_binding;
                 }else{
                     $t_un_sell = $t_un_sell + $reser->un_pr_selling_EUR;
                 }
                
-                if($reser->providerPrice_binding = 1){
+                if($reser->providerPrice_binding == 1){
                   
                     $t_un_purshase = $t_un_purshase + $reser->providerPrice_amount_binding;
                 }else{
@@ -1721,10 +1721,10 @@ class ReservationController extends Controller
 
 
                     //average of Commission bdsc per reservations Status OK
-                    if($t_un_purshase!=0)
+                    if($t_un_purshase != 0)
                     $state_bdsc = ($t_un_sell - $t_un_purshase)/$t_un_purshase;
                     else
-                    $state_bdsc =0;
+                    $state_bdsc = 0;
 
 
             //LOS ( moyenne séjours en nuitée).Status OK
