@@ -436,9 +436,10 @@ class ReservationController extends Controller
 
                          $reservationsfirst-> providerPrice_amount_binding = $newpricprovider ;
                         //  -----------------------------------------
+                        
 
-
-                         $reservationsfirst-> marge_binding =  $newpricselling - $newpricprovider; 
+                         $reservationsfirst-> marge_binding =  $newpricselling - $newpricprovider;
+                          if($newpricprovider != 0)
                          $reservationsfirst->commission_bdsc_binding = ($newpricselling -  $newpricprovider) /  $newpricprovider;
                          
                          $reservationsfirst -> save();
