@@ -159,40 +159,40 @@ aria-hidden="true">
                 </div>
             </div>
             @if($sellingPrice_binding == 1)
-            <div class="row">
-                @php
-                $dt =  date("Y-m-d");
-                            // $dt=                $dt->format('Y-m-d');
-                 @endphp
-                <div class="col-sm-4">
-                    <div class="form-group col-sm-auto">
-                        <input type="hidden" name="sellingPrice_currency" id="sellingPrice_currency" value="{{ $sellingPrice_currency }}"  >
-                        <label>Selling BAR Rate <span>:{{ $sellingPrice_currency }}</span></label>
-                        <input type="text" class="form-control" id="sellingPrice_amount{{$tgx}}" name="sellingPrice_amount" value="{{ $sellingPrice_amount }}"   placeholder="sellingPrice" onkeyup='setValue("{{$tgx}}");'>
-                        @error('sellingPrice_amount') <span class="text-danger">{{ $message }}</span>@enderror
+                <div class="row">
+                    @php
+                    $dt =  date("Y-m-d");
+                                // $dt=                $dt->format('Y-m-d');
+                    @endphp
+                    <div class="col-sm-4">
+                        <div class="form-group col-sm-auto">
+                            <input type="hidden" name="sellingPrice_currency" id="sellingPrice_currency" value="{{ $sellingPrice_currency }}"  >
+                            <label>Selling BAR Rate <span>:{{ $sellingPrice_currency }}</span></label>
+                            <input type="text" class="form-control" id="sellingPrice_amount{{$tgx}}" name="sellingPrice_amount" value="{{ $sellingPrice_amount }}"   placeholder="sellingPrice" onkeyup='setValue("{{$tgx}}");'>
+                            @error('sellingPrice_amount') <span class="text-danger">{{ $message }}</span>@enderror
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group col-sm-auto">
-                        <label>Commission</label>
-                      
-                        <input type="text" class="form-control"  name="sellingPrice_commission"
-                         id="sellingPrice_commission{{$tgx}}" 
-                        value="{{ $sellingPrice_commission }}"  onkeyup='setValue("{{$tgx}}");' >
+                    <div class="col-sm-4">
+                        <div class="form-group col-sm-auto">
+                            <label>Commission</label>
                         
+                            <input type="text" class="form-control"  name="sellingPrice_commission"
+                            id="sellingPrice_commission{{$tgx}}" 
+                            value="{{ $sellingPrice_commission }}"  onkeyup='setValue("{{$tgx}}");' >
+                            
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group col-sm-auto">
+                            <label>Selling Net Rate</label>
+                        
+                            <input type="text" class="form-control" name="sellingPrice_amount_binding" 
+                            id="sellingPrice_amount_binding{{$tgx}}" placeholder="Selling EUR" value="{{ $sellingPrice_amount_binding }}"  onkeyup='setValue("{{$tgx}}");'>
+                        
+                            @error('sellingPrice_amount_binding') <span class="text-danger">{{ $message }}</span>@enderror
+                        </div>
                     </div>
                 </div>
-                <div class="col-sm-4">
-                    <div class="form-group col-sm-auto">
-                        <label>Selling Net Rate</label>
-                      
-                        <input type="text" class="form-control" name="sellingPrice_amount_binding" 
-                        id="sellingPrice_amount_binding{{$tgx}}" placeholder="Selling EUR" value="{{ $sellingPrice_amount_binding }}"  onkeyup='setValue("{{$tgx}}");'>
-                       
-                        @error('sellingPrice_amount_binding') <span class="text-danger">{{ $message }}</span>@enderror
-                    </div>
-                </div>
-            </div>
             @endif
             <hr>
             <div class="row">
@@ -228,41 +228,41 @@ aria-hidden="true">
                 </div>
            </div>
               @if($providerPrice_binding == 1)
-           <div class="row">
-                <div class="col-sm-4">
-                    <div class="form-group col-sm-auto">
-                        <input type="hidden" name="providerPrice_currency" value="{{ $providerPrice_currency }}"  >
-                        <label>Provider BAR Rate <span>:{{ $providerPrice_currency }}</span></label>
-                        <input type="text" id="providerPrice_amount{{$tgx}}" class="form-control" name="providerPrice_amount" value="{{ $providerPrice_amount }}"   placeholder="providerPrice" onkeyup='setValue("{{$tgx}}");'>
-                        @error('providerPrice_amount') <span class="text-danger">{{ $message }}</span>@enderror
+                    <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group col-sm-auto">
+                                    <input type="hidden" name="providerPrice_currency" value="{{ $providerPrice_currency }}"  >
+                                    <label>Provider BAR Rate <span>:{{ $providerPrice_currency }}</span></label>
+                                    <input type="text" id="providerPrice_amount{{$tgx}}" class="form-control" name="providerPrice_amount" value="{{ $providerPrice_amount }}"   placeholder="providerPrice" onkeyup='setValue("{{$tgx}}");'>
+                                    @error('providerPrice_amount') <span class="text-danger">{{ $message }}</span>@enderror
+                                </div>
+                        </div>
+                            <div class="col-sm-4">
+                                <div class="form-group col-sm-auto">
+                                    <label>Commission</label>
+                                
+                                    
+                                    
+                                    <input type="text" class="form-control" name="providerPrice_commission" 
+                                id="providerPrice_commission{{$tgx}}" value="{{ $providerPrice_commission }}"   >
+                                    
+                                </div>
+                            
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group col-sm-auto">
+                                    <label>Provider Net Rate</label>
+                                    <input type="text" class="form-control" id="providerPrice_amount_binding{{$tgx}}" name="providerPrice_amount_binding" value="{{ $providerPrice_amount_binding }}" placeholder="Provider EUR" onkeyup='setValue("{{$tgx}}");'>
+                                    @error('providerPrice_amount_binding') <span class="text-danger">{{ $message }}</span>@enderror
+                                </div>
+                            </div>
                     </div>
-              </div>
-                <div class="col-sm-4">
-                    <div class="form-group col-sm-auto">
-                        <label>Commission</label>
-                       
-                        
-                        
-                        <input type="text" class="form-control" name="providerPrice_commission" 
-                     id="providerPrice_commission{{$tgx}}" value="{{ $providerPrice_commission }}"   >
-                        
-                    </div>
-                 
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group col-sm-auto">
-                        <label>Provider Net Rate</label>
-                        <input type="text" class="form-control" id="providerPrice_amount_binding{{$tgx}}" name="providerPrice_amount_binding" value="{{ $providerPrice_amount_binding }}" placeholder="Provider EUR" onkeyup='setValue("{{$tgx}}");'>
-                        @error('providerPrice_amount_binding') <span class="text-danger">{{ $message }}</span>@enderror
-                    </div>
-                </div>
-           </div>
-           @endif
+              @endif
            <hr>
 
 
            <div class="row">
-
+            {{ $sellingPrice_binding }}
             @if($sellingPrice_binding == 0 && $providerPrice_binding == 0)
                     <div class="col-sm-3">
                         <div class="form-group col-sm-auto">
@@ -300,7 +300,7 @@ aria-hidden="true">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="currency2" >%</span>
                                     </div>
-                            </div>
+                              </div>
                             </div>
                     </div>
 
