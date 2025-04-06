@@ -68,7 +68,10 @@ function getBadge($var){
         
         
         <a type="button" style="margin: 5px" class="btn btn-outline-info col-sm-full" >
-            <h6>BDSC_Average</h6><hr style="margin-top: 5px; margin-bottom: 10px">  <span class="badge badge-pills badge-light">{{$res_state["state_bdsc"]}} %</span>
+            <h6>BDSC_Average</h6><hr style="margin-top: 5px; margin-bottom: 10px">  <span class="badge badge-pills badge-light">
+                {{-- {{ $res_state["state_bdsc"]}}  --}}
+                 
+                %</span>
         </a>
         
         
