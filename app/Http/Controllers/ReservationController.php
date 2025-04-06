@@ -33,7 +33,7 @@ class ReservationController extends Controller
             //    die('Error conversion to  requested');
            ReservationController::crono_taux();
            ReservationController::getdata();
-          ReservationController::commission_rese();
+         return ReservationController::commission_rese();
    
 
 
@@ -407,8 +407,8 @@ class ReservationController extends Controller
        public function commission_rese(){
            $i =0;
             $reservations = Reservation::
-                            where('sellingPrice_binding',1)->where('tgx',"AAACLA")->get();
-                                // return  $reservations;
+                            where('sellingPrice_binding',1)->get();
+                                return  $reservations;
             
             foreach ($reservations as $reservation)
             {

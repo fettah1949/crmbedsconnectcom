@@ -262,6 +262,8 @@ aria-hidden="true">
 
 
            <div class="row">
+
+            @if($sellingPrice_binding == 0 && $providerPrice_binding == 0)
                     <div class="col-sm-3">
                         <div class="form-group col-sm-auto">
                             <label>Marge</label>
@@ -270,7 +272,7 @@ aria-hidden="true">
                     </div>
                    <div class="col-sm-3">
                         <div class="form-group col-sm-auto">
-                            <label for="Commission_bdsc">Comission BDSC</label>
+                            <label for="Commission_bdsc">Comission </label>
         
         
                             <div class="input-group mb-4">
@@ -280,7 +282,30 @@ aria-hidden="true">
                                 </div>
                            </div>
                         </div>
+                   </div>
+            @else
+                   <div class="col-sm-3">
+                        <div class="form-group col-sm-auto">
+                            <label>Marge  </label>
+                            <input readonly id="marge_binding{{$tgx}}" class="form-control" name="marge" value="{{ $marge_binding }}"   placeholder="marge binding">
+                        </div>
+                   </div>
+                    <div class="col-sm-3">
+                            <div class="form-group col-sm-auto">
+                                <label for="Commission_bdsc">Comission BDSC </label>
+        
+            
+                                <div class="input-group mb-4">
+                                    <input readonly class="form-control" aria-label="Default" aria-describedby="currency2" id="commission_bdsc_binding{{$tgx}}" name="commission_bdsc_binding" value="{{ number_format($commission_bdsc_binding * 100, 2, '.', ' ') }}" placeholder="Commission_bdsc">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="currency2" >%</span>
+                                    </div>
+                            </div>
+                            </div>
                     </div>
+
+            @endif
+
                    <div class="col-sm-3">
                         <div class="form-group col-sm-auto">
                             <label>Nights Count</label>
@@ -295,30 +320,7 @@ aria-hidden="true">
                    </div>
    
            </div>
-              @if($sellingPrice_binding == 1 && $providerPrice_binding == 1)
-                <div class="row">
-                            <div class="col-sm-3">
-                                <div class="form-group col-sm-auto">
-                                    <label>Marge  </label>
-                                    <input readonly id="marge_binding{{$tgx}}" class="form-control" name="marge" value="{{ $marge_binding }}"   placeholder="marge binding">
-                                </div>
-                            </div>
-                        <div class="col-sm-3">
-                                <div class="form-group col-sm-auto">
-                                    <label for="Commission_bdsc">Comission  </label>
-            
-                
-                                    <div class="input-group mb-4">
-                                        <input readonly class="form-control" aria-label="Default" aria-describedby="currency2" id="commission_bdsc_binding{{$tgx}}" name="commission_bdsc_binding" value="{{ number_format($commission_bdsc_binding * 100, 2, '.', ' ') }}" placeholder="Commission_bdsc">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" id="currency2" >%</span>
-                                        </div>
-                                </div>
-                                </div>
-                            </div>
-        
-                </div>
-                @endif
+             
            @endif
             <div class="modal-footer">
 
