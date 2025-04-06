@@ -262,7 +262,7 @@ aria-hidden="true">
 
 
            <div class="row">
-            {{ $sellingPrice_binding }}
+           
             @if($sellingPrice_binding == 0 && $providerPrice_binding == 0)
                     <div class="col-sm-3">
                         <div class="form-group col-sm-auto">
