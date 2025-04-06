@@ -145,13 +145,13 @@ class ReservationController extends Controller
             {
                 
                 $res_count_st_all_exept3 = $res_count_st_all_exept3 + 1 ;
-                if($reser->sellingPrice_binding = 1){
+                if($reser->sellingPrice_binding == 1){
                     $t_un_sell = $t_un_sell + $reser->sellingPrice_amount_binding;
                 }else{
                     $t_un_sell = $t_un_sell + $reser->un_pr_selling_EUR;
                 }
                
-                if($reser->providerPrice_binding = 1){
+                if($reser->providerPrice_binding == 1){
                   
                     $t_un_purshase = $t_un_purshase + $reser->providerPrice_amount_binding;
                 }else{
@@ -199,11 +199,11 @@ class ReservationController extends Controller
 
 
             //average of Commission bdsc per reservations Status OK
-            $state_bdsc = ($t_un_sell - $t_un_purshase)/$t_un_purshase;
-            // if($t_un_purshase != 0)
             // $state_bdsc = ($t_un_sell - $t_un_purshase)/$t_un_purshase;
-            // else
-            // $state_bdsc = 0 ;
+            if($t_un_purshase != 0)
+            $state_bdsc = ($t_un_sell - $t_un_purshase)/$t_un_purshase;
+            else
+            $state_bdsc = 0 ;
 
 
             //global ADR ( prix moyenne/nuitée).status=ok
