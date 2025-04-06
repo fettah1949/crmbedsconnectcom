@@ -197,7 +197,10 @@ class ReservationController extends Controller
 
 
             //average of Commission bdsc per reservations Status OK
+            if($t_un_purshase != 0)
             $state_bdsc = ($t_un_sell - $t_un_purshase)/$t_un_purshase;
+            else
+            $state_bdsc = 0 ;
 
 
             //global ADR ( prix moyenne/nuitée).status=ok
