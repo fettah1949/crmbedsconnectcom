@@ -407,7 +407,7 @@ class ReservationController extends Controller
        public function commission_rese(){
            $i =0;
             $reservations = Reservation::
-                            where('sellingPrice_binding',1)->get();
+                            where('sellingPrice_binding',1)->where('commission_bdsc_binding',Null)->get();
                                 // return  $reservations;
             
             foreach ($reservations as $reservation)
