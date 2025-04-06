@@ -145,21 +145,21 @@ class ReservationController extends Controller
             {
                 
                 $res_count_st_all_exept3 = $res_count_st_all_exept3 + 1 ;
-                // if($reser->sellingPrice_binding = 1){
-                //     $t_un_sell = $t_un_sell + $reser->sellingPrice_amount_binding;
-                // }else{
-                //     $t_un_sell = $t_un_sell + $reser->un_pr_selling_EUR;
-                // }
+                if($reser->sellingPrice_binding = 1){
+                    $t_un_sell = $t_un_sell + $reser->sellingPrice_amount_binding;
+                }else{
+                    $t_un_sell = $t_un_sell + $reser->un_pr_selling_EUR;
+                }
                
-                // if($reser->providerPrice_binding = 1){
+                if($reser->providerPrice_binding = 1){
                   
-                //     $t_un_purshase = $t_un_purshase + $reser->providerPrice_amount_binding;
-                // }else{
-                //     $t_un_purshase = $t_un_purshase + $reser->un_pr_purchasing_EUR;
-                // }
+                    $t_un_purshase = $t_un_purshase + $reser->providerPrice_amount_binding;
+                }else{
+                    $t_un_purshase = $t_un_purshase + $reser->un_pr_purchasing_EUR;
+                }
 
-                $t_un_sell = $t_un_sell + $reser->un_pr_selling_EUR;
-                $t_un_purshase = $t_un_purshase + $reser->un_pr_purchasing_EUR;
+                // $t_un_sell = $t_un_sell + $reser->un_pr_selling_EUR;
+                // $t_un_purshase = $t_un_purshase + $reser->un_pr_purchasing_EUR;
 
                 
                 
@@ -199,7 +199,7 @@ class ReservationController extends Controller
 
 
             //average of Commission bdsc per reservations Status OK
-            $state_bdsc = ($t_un_sell - $t_un_purshase)/$t_un_purshase;
+            // $state_bdsc = ($t_un_sell - $t_un_purshase)/$t_un_purshase;
             // if($t_un_purshase != 0)
             // $state_bdsc = ($t_un_sell - $t_un_purshase)/$t_un_purshase;
             // else
@@ -228,7 +228,7 @@ class ReservationController extends Controller
         $res_count_st_not_ok = $res_count_st_all - $res_count_st_ok;
         
         $res_state = array(
-            'state_bdsc' => round($state_bdsc*100, 2),
+            // 'state_bdsc' => round($state_bdsc*100, 2),
             'state_nightcount'=> round($state_nightcount, 2),
             'state_marge'=> round($state_marge, 2),
             'state_nightprice'=> round($state_nightprice, 2),
