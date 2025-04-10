@@ -1951,7 +1951,7 @@ class ReservationController extends Controller
             
         $Booking_to_D =  date("Y-m-d");
             //   $Booking_to_D =  date("2024-07-09");
-        $Booking_from_D = date('Y-m-d', strtotime($Booking_to_D . " - 2 day"));
+        $Booking_from_D = date('Y-m-d', strtotime($Booking_to_D . " - 1 day"));
                                                                     
 
                 // retrive by 7 days 
