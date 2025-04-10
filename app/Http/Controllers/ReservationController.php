@@ -431,7 +431,7 @@ class ReservationController extends Controller
                                           ->orWhere('providerPrice_binding', 1);
                             })
                             ->whereNull('commission_bdsc_binding')
-                            ->where('tgx', "AAACNV")
+                            
                             ->get();
                             
             
