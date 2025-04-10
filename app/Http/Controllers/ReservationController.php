@@ -424,9 +424,16 @@ class ReservationController extends Controller
 
        public function commission_rese(){
            $i =0;
-            $reservations = Reservation::
-                            where('sellingPrice_binding',1)->where('commission_bdsc_binding',Null)->get();
+            // $reservations = Reservation::where('sellingPrice_binding',1)->orwhere('providerPrice_binding',1)->where('commission_bdsc_binding',Null)->get();
                                 // return  $reservations;
+            $reservations = Reservation::where(function ($query) {
+                                $query->where('sellingPrice_binding', 1)
+                                          ->orWhere('providerPrice_binding', 1);
+                            })
+                            ->whereNull('commission_bdsc_binding')
+                            ->where('tgx', "AAACNV")
+                            ->get();
+                            
             
             foreach ($reservations as $reservation)
             {
@@ -438,31 +445,31 @@ class ReservationController extends Controller
                      if($reservationsfirst->sellingPrice_binding==1)
                      {
                          $commission_selling = ($reservationsfirst-> un_pr_selling_EUR *  ($reservationsfirst-> sellingPrice_commission / 100) ) ;
-                                    
-
-
-                         $newpricselling = $reservationsfirst->un_pr_selling_EUR - $commission_selling;
-                                     
-
+                         $newpricselling = $reservationsfirst->un_pr_selling_EUR - $commission_selling;                                
                          $reservationsfirst-> sellingPrice_amount_binding = $newpricselling ;
-
-                         $commission_provider =  ($reservationsfirst-> un_pr_purchasing_EUR *  ($reservationsfirst-> providerPrice_commission / 100) ) ;
+                        
+                    }else{
+                        $newpricselling = $reservationsfirst->un_pr_selling_EUR ; 
+                    }
+                    
+                    if ($reservationsfirst->providerPrice_binding==1){
+                        $commission_provider =  ($reservationsfirst-> un_pr_purchasing_EUR *  ($reservationsfirst-> providerPrice_commission / 100) ) ;
                          $newpricprovider =$reservationsfirst->un_pr_purchasing_EUR - $commission_provider;
-
-                        
-                 
-
                          $reservationsfirst-> providerPrice_amount_binding = $newpricprovider ;
-                        //  -----------------------------------------
-                        
+                    }else{
+                        $newpricprovider =$reservationsfirst->un_pr_purchasing_EUR ; 
+                    }
 
-                         $reservationsfirst-> marge_binding =  $newpricselling - $newpricprovider;
+
+
+                    $reservationsfirst-> marge_binding =  $newpricselling - $newpricprovider;
                           if($newpricprovider != 0)
                          $reservationsfirst->commission_bdsc_binding = ($newpricselling -  $newpricprovider) /  $newpricprovider;
                          
                          $reservationsfirst -> save();
-                        
-                    }
+
+
+
             }
             //  return  'Fin De Traitement';
        }
@@ -1944,7 +1951,7 @@ class ReservationController extends Controller
             
         $Booking_to_D =  date("Y-m-d");
             //   $Booking_to_D =  date("2024-07-09");
-        $Booking_from_D = date('Y-m-d', strtotime($Booking_to_D . " - 1 day"));
+        $Booking_from_D = date('Y-m-d', strtotime($Booking_to_D . " - 2 day"));
                                                                     
 
                 // retrive by 7 days 
