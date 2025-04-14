@@ -240,8 +240,11 @@ class HomeController extends Controller
             {
                 $t_un_sell_ok = $t_un_sell_ok + $reser->sellingPrice_amount;
             }
-
+            if($reser->sellingPrice_binding == 0 || $reser->providerPrice_binding == 0)
             $res_marge = $res_marge + $reser-> marge;
+            else
+            $res_marge = $res_marge + $reser-> marge_binding;
+
             if($reser->status == 'OK' OR $reser->status == 'CN-FEE'  OR $reser->status == 'CN-NRF'  OR $reser->status == 'NO-SHOW' )
             {
                 
