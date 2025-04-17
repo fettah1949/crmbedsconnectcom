@@ -235,11 +235,31 @@ class HomeController extends Controller
             $res_count_st_all = $res_count_st_all + 1 ;
             if($reser->status == 'CN')
             {
-                $t_un_sell_cn = $t_un_sell_cn + $reser->sellingPrice_amount;
+                // $t_un_sell_cn = $t_un_sell_cn + $reser->sellingPrice_amount;
+
+
+                
+                if($reser->sellingPrice_binding == 1){
+                    $t_un_sell_cn = $t_un_sell_cn + $reser->sellingPrice_amount_binding;
+                }else{
+                    $t_un_sell_cn = $t_un_sell_cn + $reser->un_pr_selling_EUR;
+                }
+
+
             }elseif($reser->status == 'OK')
             {
-                $t_un_sell_ok = $t_un_sell_ok + $reser->sellingPrice_amount;
+                if($reser->sellingPrice_binding == 1){
+                    $t_un_sell_ok = $t_un_sell_ok + $reser->sellingPrice_amount_binding;
+                }else{
+                    $t_un_sell_ok = $t_un_sell_ok + $reser->un_pr_selling_EUR;
+                }
+
+                // $t_un_sell_ok = $t_un_sell_ok + $reser->sellingPrice_amount;
             }
+
+
+
+
             if($reser->sellingPrice_binding == 0 || $reser->providerPrice_binding == 0)
             $res_marge = $res_marge + $reser-> marge;
             else
@@ -488,8 +508,21 @@ class HomeController extends Controller
                 
                 $res_count_st_all_exept3 = $res_count_st_all_exept3 + 1 ;
                 
-                $t_un_sell = $t_un_sell + $reser->un_pr_selling_EUR;
-                $t_un_purshase = $t_un_purshase + $reser->un_pr_purchasing_EUR;
+                if($reser->sellingPrice_binding == 1){
+                    $t_un_sell = $t_un_sell + $reser->sellingPrice_amount_binding;
+                }else{
+                    $t_un_sell = $t_un_sell + $reser->un_pr_selling_EUR;
+                }
+               
+                if($reser->providerPrice_binding == 1){
+                  
+                    $t_un_purshase = $t_un_purshase + $reser->providerPrice_amount_binding;
+                }else{
+                    $t_un_purshase = $t_un_purshase + $reser->un_pr_purchasing_EUR;
+                }
+
+                // $t_un_sell = $t_un_sell + $reser->un_pr_selling_EUR;
+                // $t_un_purshase = $t_un_purshase + $reser->un_pr_purchasing_EUR;
                 
                 if($reser->status == 'OK'){
                     $res_count_st_ok = $res_count_st_ok + 1 ;
