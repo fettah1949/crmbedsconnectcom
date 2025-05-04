@@ -425,7 +425,7 @@
                 <div class="widget widget-chart-three">
                     <div class="widget-heading">
                         <div class="">
-                            <h5 class="">Revenue Booking (2022 - 2023 - 2024)</h5>
+                            <h5 class="">Revenue Booking (2023 - 2024 - 2025)</h5>
                         </div>
 
                         <div class="dropdown  custom-dropdown">
@@ -458,7 +458,7 @@
                 <div class="widget widget-chart-three">
                     <div class="widget-heading">
                         <div class="">
-                            <h5 class="">Revenue checkout (2022 - 2023 - 2024)</h5>
+                            <h5 class="">Revenue checkout (2023 - 2024 - 2025)</h5>
                         </div>
 
                         <div class="dropdown  custom-dropdown">
@@ -491,7 +491,7 @@
                 <div class="widget widget-chart-three">
                     <div class="widget-heading">
                         <div class="">
-                            <h5 class="">Revenue check-in (2022 - 2023 - 2024)</h5>
+                            <h5 class="">Revenue check-in (2023 - 2024 - 2025)</h5>
                         </div>
 
                         <div class="dropdown  custom-dropdown">
@@ -524,7 +524,7 @@
                 <div class="widget widget-chart-three">
                     <div class="widget-heading">
                         <div class="">
-                            <h5 class="">Revenue par semaine (2022 - 2023)</h5>
+                            <h5 class="">Revenue par semaine (2024 - 2025)</h5>
                         </div>
 
                         <div class="dropdown  custom-dropdown">

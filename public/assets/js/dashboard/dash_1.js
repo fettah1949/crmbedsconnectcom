@@ -1188,16 +1188,16 @@ var options = {
               colors: ['transparent']
           },
           series: [{
-              name: '2022',
+              name: '2023',
               // data: [58, 44, 55, 57, 56, 61, 58, 63, 60, 66, 56, 63]
               data: [$mois_0_parans_1,$mois_1_parans_1,$mois_2_parans_1, $mois_3_parans_1,$mois_4_parans_1,$mois_5_parans_1,$mois_6_parans_1,$mois_7_parans_1,$mois_8_parans_1,$mois_9_parans_1, $mois_10_parans_1,$mois_11_parans_1]
 
           }, {
-              name: '2023',
+              name: '2024',
               data: [$mois_0_parans_ans_pre_plus,$mois_1_parans_ans_pre_plus,$mois_2_parans_ans_pre_plus, $mois_3_parans_ans_pre_plus,$mois_4_parans_ans_pre_plus,$mois_5_parans_ans_pre_plus,$mois_6_parans_ans_pre_plus,$mois_7_parans_ans_pre_plus,$mois_8_parans_ans_pre_plus,$mois_9_parans_ans_pre_plus, $mois_10_parans_ans_pre_plus,$mois_11_parans_ans_pre_plus]
 
           },{
-            name: '2024',
+            name: '2025',
             data: [$mois_0_parans,$mois_1_parans,$mois_2_parans, $mois_3_parans,$mois_4_parans,$mois_5_parans,$mois_6_parans,$mois_7_parans,$mois_8_parans,$mois_9_parans, $mois_10_parans,$mois_11_parans]
 
         }
@@ -1347,16 +1347,16 @@ $mois_11_parans_checkout=parseInt(document.getElementById("mois_11_parans_checko
               colors: ['transparent']
           },
           series: [{
-              name: '2022',
+              name: '2023',
               // data: [58, 44, 55, 57, 56, 61, 58, 63, 60, 66, 56, 63]
               data: [$mois_0_parans_1_checkout,$mois_1_parans_1_checkout,$mois_2_parans_1_checkout, $mois_3_parans_1_checkout,$mois_4_parans_1_checkout,$mois_5_parans_1_checkout,$mois_6_parans_1_checkout,$mois_7_parans_1_checkout,$mois_8_parans_1_checkout,$mois_9_parans_1_checkout, $mois_10_parans_1_checkout,$mois_11_parans_1_checkout]
 
           }, {
-              name: '2023',
+              name: '2024',
               data: [$mois_0_parans_ans_pre_plus_checkout,$mois_1_parans_ans_pre_plus_checkout,$mois_2_parans_ans_pre_plus_checkout, $mois_3_parans_ans_pre_plus_checkout,$mois_4_parans_ans_pre_plus_checkout,$mois_5_parans_ans_pre_plus_checkout,$mois_6_parans_ans_pre_plus_checkout,$mois_7_parans_ans_pre_plus_checkout,$mois_8_parans_ans_pre_plus_checkout,$mois_9_parans_ans_pre_plus_checkout, $mois_10_parans_ans_pre_plus_checkout,$mois_11_parans_ans_pre_plus_checkout]
 
           },{
-            name: '2024',
+            name: '2025',
             data: [$mois_0_parans_checkout,$mois_1_parans_checkout,$mois_2_parans_checkout, $mois_3_parans_checkout,$mois_4_parans_checkout,$mois_5_parans_checkout,$mois_6_parans_checkout,$mois_7_parans_checkout,$mois_8_parans_checkout,$mois_9_parans_checkout, $mois_10_parans_checkout,$mois_11_parans_checkout]
 
         }],
@@ -1505,16 +1505,16 @@ $mois_11_parans_checkin=parseInt(document.getElementById("mois_11_parans_checkin
               colors: ['transparent']
           },
           series: [{
-              name: '2022',
+              name: '2023',
               // data: [58, 44, 55, 57, 56, 61, 58, 63, 60, 66, 56, 63]
               data: [$mois_0_parans_1_checkin,$mois_1_parans_1_checkin,$mois_2_parans_1_checkin, $mois_3_parans_1_checkin,$mois_4_parans_1_checkin,$mois_5_parans_1_checkin,$mois_6_parans_1_checkin,$mois_7_parans_1_checkin,$mois_8_parans_1_checkin,$mois_9_parans_1_checkin, $mois_10_parans_1_checkin,$mois_11_parans_1_checkin]
 
           }, {
-              name: '2023',
+              name: '2024',
               data: [$mois_0_parans_ans_pre_plus_checkin,$mois_1_parans_ans_pre_plus_checkin,$mois_2_parans_ans_pre_plus_checkin, $mois_3_parans_ans_pre_plus_checkin,$mois_4_parans_ans_pre_plus_checkin,$mois_5_parans_ans_pre_plus_checkin,$mois_6_parans_ans_pre_plus_checkin,$mois_7_parans_ans_pre_plus_checkin,$mois_8_parans_ans_pre_plus_checkin,$mois_9_parans_ans_pre_plus_checkin, $mois_10_parans_ans_pre_plus_checkin,$mois_11_parans_ans_pre_plus_checkin]
 
           },{
-            name: '2024',
+            name: '2025',
             data: [$mois_0_parans_checkin,$mois_1_parans_checkin,$mois_2_parans_checkin, $mois_3_parans_checkin,$mois_4_parans_checkin,$mois_5_parans_checkin,$mois_6_parans_checkin,$mois_7_parans_checkin,$mois_8_parans_checkin,$mois_9_parans_checkin, $mois_10_parans_checkin,$mois_11_parans_checkin]
 
         }],
