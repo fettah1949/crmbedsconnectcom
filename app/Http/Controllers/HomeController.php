@@ -41,7 +41,7 @@ class HomeController extends Controller
           $ans_pre_plus = $ans_pre  + 1;
          $ans_pre=$ans_pre.'-01-01';
           $ans_pre_plus=$ans_pre_plus.'-01-01';
-        $date2 = date('Y-m-d', strtotime('+1 day'));
+        $date2 = date('Y-m-d', strtotime('-4 day'));
         $date_semaine = date('Y-m-d', strtotime('-7 day'));
         //return $dt.' / '. $date2;
         $formattedDate = $dt01->format('H:i:s');
