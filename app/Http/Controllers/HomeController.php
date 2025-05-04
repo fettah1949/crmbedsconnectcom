@@ -233,8 +233,8 @@ class HomeController extends Controller
         $res_marge=0;
         foreach ($reservations as $reser) {
             $res_count_st_all = $res_count_st_all + 1 ;
-            if($reser->status == 'CN')
-            {
+            if($reser->status == 'OK' OR $reser->status == 'CN-FEE'  OR $reser->status == 'CN-NRF'  OR $reser->status == 'NO-SHOW' )
+                {
                 // $t_un_sell_cn = $t_un_sell_cn + $reser->sellingPrice_amount;
 
 
