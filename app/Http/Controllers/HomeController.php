@@ -41,7 +41,7 @@ class HomeController extends Controller
           $ans_pre_plus = $ans_pre  + 1;
          $ans_pre=$ans_pre.'-01-01';
           $ans_pre_plus=$ans_pre_plus.'-01-01';
-        $date2 = date('Y-m-d', strtotime('-4 day'));
+        $date2 = date('Y-m-d', strtotime('+1 day'));
         $date_semaine = date('Y-m-d', strtotime('-7 day'));
         // return $dt.' / '. $date2;
         $formattedDate = $dt01->format('H:i:s');
@@ -188,8 +188,8 @@ class HomeController extends Controller
         $reservations = Reservation::
         // whereDate('bookingDate','>=', $date2)
         join('hotellists', 'reservations.hotelCode', '=', 'hotellists.Hotel_Code')
-        // ->whereDate('bookingDate','>=',$dt)
-        ->whereDate('bookingDate', $date2)
+        ->whereDate('bookingDate','>=',$dt)
+        ->whereDate('bookingDate','<=' ,$date2)
          ->orderBy('bookingDate','DESC')
          ->select('*','hotellists.provider  as providerName','reservations.provider  as provider_h','hotellists.Hotel_Name as Hotel_Name_h')
             ->get();
