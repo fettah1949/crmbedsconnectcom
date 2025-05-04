@@ -188,8 +188,8 @@ class HomeController extends Controller
         $reservations = Reservation::
         // whereDate('bookingDate','>=', $date2)
         join('hotellists', 'reservations.hotelCode', '=', 'hotellists.Hotel_Code')
-        ->whereDate('bookingDate','<=',$dt)
-        ->whereDate('bookingDate','>=', $date2)
+        // ->whereDate('bookingDate','>=',$dt)
+        ->whereDate('bookingDate', $date2)
          ->orderBy('bookingDate','DESC')
          ->select('*','hotellists.provider  as providerName','reservations.provider  as provider_h','hotellists.Hotel_Name as Hotel_Name_h')
             ->get();
