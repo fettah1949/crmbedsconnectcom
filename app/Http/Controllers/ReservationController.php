@@ -298,7 +298,7 @@ class ReservationController extends Controller
                CURLOPT_URL => "https://api.apilayer.com/exchangerates_data/".$dateapi."?symbols=eur&base=usd",     
               CURLOPT_HTTPHEADER => array(
                "Content-Type: text/plain",
-               "apikey: sIwzbVFcVobjd7uQ0axFMdjIsusT67yp"
+               "apikey: uoZlXr97d3IWrlVRKKWZNVseukdcYw3J"
              ),
              CURLOPT_RETURNTRANSFER => true,
              CURLOPT_ENCODING => "",
@@ -322,7 +322,7 @@ class ReservationController extends Controller
                     CURLOPT_URL => "https://api.apilayer.com/exchangerates_data/".$dateapi."?symbols=eur&base=mad",     
                     CURLOPT_HTTPHEADER => array(
                     "Content-Type: text/plain",
-                    "apikey: sIwzbVFcVobjd7uQ0axFMdjIsusT67yp"
+                    "apikey: uoZlXr97d3IWrlVRKKWZNVseukdcYw3J"
                     ),
                     CURLOPT_RETURNTRANSFER => true,
                     CURLOPT_ENCODING => "",
