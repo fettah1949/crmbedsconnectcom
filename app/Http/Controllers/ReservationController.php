@@ -298,7 +298,7 @@ class ReservationController extends Controller
                CURLOPT_URL => "https://api.apilayer.com/exchangerates_data/".$dateapi."?symbols=eur&base=usd",     
               CURLOPT_HTTPHEADER => array(
                "Content-Type: text/plain",
-               "apikey: 3qpOD41mwUS02koZK7p1EV8t7m7x4wwR"
+               "apikey: sIwzbVFcVobjd7uQ0axFMdjIsusT67yp"
              ),
              CURLOPT_RETURNTRANSFER => true,
              CURLOPT_ENCODING => "",
@@ -314,6 +314,7 @@ class ReservationController extends Controller
                 curl_close($curl);
                 // return $response;
                 $json = json_decode($response, true);  
+                // var_dump($json);die;
                 $eur_usd= $json['rates']['EUR'];
                 $curl = curl_init();
         
@@ -321,7 +322,7 @@ class ReservationController extends Controller
                     CURLOPT_URL => "https://api.apilayer.com/exchangerates_data/".$dateapi."?symbols=eur&base=mad",     
                     CURLOPT_HTTPHEADER => array(
                     "Content-Type: text/plain",
-                    "apikey: 3qpOD41mwUS02koZK7p1EV8t7m7x4wwR"
+                    "apikey: sIwzbVFcVobjd7uQ0axFMdjIsusT67yp"
                     ),
                     CURLOPT_RETURNTRANSFER => true,
                     CURLOPT_ENCODING => "",
